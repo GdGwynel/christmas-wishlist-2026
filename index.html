@@ -6,6 +6,7 @@
 <title>Christmas Party 2026 · Wishlist</title>
 <meta name="description" content="Our Christmas Party 2026 wishlist. Add yours.">
 <meta name="theme-color" content="#4A1820">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20120%20120%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3Cpath%20id%3D%22arcTop%22%20d%3D%22M18%2060%20A42%2042%200%200%201%20102%2060%22/%3E%0A%20%20%20%20%3Cpath%20id%3D%22arcBot%22%20d%3D%22M22%2060%20A38%2038%200%200%200%2098%2060%22/%3E%0A%20%20%3C/defs%3E%0A%20%20%3Ccircle%20cx%3D%2260%22%20cy%3D%2260%22%20r%3D%2258%22%20fill%3D%22%23C9A227%22/%3E%0A%20%20%3Ccircle%20cx%3D%2260%22%20cy%3D%2260%22%20r%3D%2254%22%20fill%3D%22%234A1820%22/%3E%0A%20%20%3Ccircle%20cx%3D%2260%22%20cy%3D%2260%22%20r%3D%2231%22%20fill%3D%22none%22%20stroke%3D%22%23C9A227%22%20stroke-width%3D%221.2%22%20stroke-dasharray%3D%222%203%22/%3E%0A%20%20%3Ctext%20font-family%3D%22Figtree%2C%20Arial%2C%20sans-serif%22%20font-weight%3D%22800%22%20font-size%3D%2211%22%20letter-spacing%3D%221.6%22%20fill%3D%22%23E8CB6A%22%20text-anchor%3D%22middle%22%3E%3CtextPath%20href%3D%22%23arcTop%22%20startOffset%3D%2250%25%22%3ECHRISTMAS%20PARTY%3C/textPath%3E%3C/text%3E%0A%20%20%3Ctext%20font-family%3D%22Figtree%2C%20Arial%2C%20sans-serif%22%20font-weight%3D%22800%22%20font-size%3D%2212%22%20letter-spacing%3D%223%22%20fill%3D%22%23E8CB6A%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22hanging%22%3E%3CtextPath%20href%3D%22%23arcBot%22%20startOffset%3D%2250%25%22%3E2026%3C/textPath%3E%3C/text%3E%0A%20%20%3Cpolygon%20points%3D%2215%2C60%2017%2C57%2019%2C60%2017%2C63%22%20fill%3D%22%23C9A227%22/%3E%0A%20%20%3Cpolygon%20points%3D%22101%2C60%20103%2C57%20105%2C60%20103%2C63%22%20fill%3D%22%23C9A227%22/%3E%0A%20%20%3Crect%20x%3D%2245%22%20y%3D%2259%22%20width%3D%2230%22%20height%3D%2220%22%20rx%3D%222%22%20fill%3D%22%23636B2F%22/%3E%0A%20%20%3Crect%20x%3D%2242%22%20y%3D%2252%22%20width%3D%2236%22%20height%3D%229%22%20rx%3D%222%22%20fill%3D%22%237A8338%22/%3E%0A%20%20%3Crect%20x%3D%2257%22%20y%3D%2252%22%20width%3D%226%22%20height%3D%2227%22%20fill%3D%22%23E8CB6A%22/%3E%0A%20%20%3Cpath%20d%3D%22M60%2052%20C52%2042%2043%2046%2050%2052%20Z%20M60%2052%20C68%2042%2077%2046%2070%2052%20Z%22%20fill%3D%22%23C9A227%22/%3E%0A%20%20%3Cpolygon%20class%3D%22sstar%22%20points%3D%2260%2C30%2062.4%2C36.8%2069.6%2C37%2063.9%2C41.4%2065.9%2C48.4%2060%2C44.2%2054.1%2C48.4%2056.1%2C41.4%2050.4%2C37%2057.6%2C36.8%22%20fill%3D%22%23E8CB6A%22/%3E%0A%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Rozha+One&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -184,6 +185,7 @@
   /* Reduced motion: keep light and fades, drop the big movement */
   @media (prefers-reduced-motion:reduce){
     .parol,.parol-wrap,.rays{animation:none}
+    .hero > a.logo{animation:fadeIn .8s ease-out both}
     .rays{animation:glow 4s ease-in-out infinite alternate}
     .hero h1 .ltr{animation:fadeIn .8s ease-out calc(.3s + var(--i) * 60ms) both}
     .when,.lede,.countdown,.hero-actions,.panel{animation:fadeIn .8s ease-out both}
@@ -194,6 +196,15 @@
     .btn{transition:none}
   }
   @keyframes fadeIn{from{opacity:0}}
+
+
+  /* Logo seal */
+  .hero > a.logo{position:absolute; top:18px; left:20px; z-index:3; width:92px; height:92px; display:block; border-radius:50%; filter:drop-shadow(0 6px 14px rgba(0,0,0,.45)); animation:sealIn .9s cubic-bezier(.2,.9,.3,1.4) .2s both}
+  .seal{width:100%; height:100%; display:block}
+  .seal .sstar{animation:pulse 2.2s ease-in-out infinite}
+  @keyframes sealIn{from{transform:scale(.3) rotate(-90deg); opacity:0}}
+  @keyframes sealSpin{to{transform:rotate(360deg)}}
+  @media (max-width:520px){ .hero > a.logo{width:60px; height:60px; top:12px; left:12px} }
 
   .fab{display:none}
   footer{text-align:center; color:#E9D7BE; opacity:.7; font-size:.85rem; padding:0 0 30px}
@@ -211,6 +222,24 @@
 <body>
 <header class="hero">
   <div id="lights" class="lights"></div>
+  <a class="logo" href="./" aria-label="Christmas Party 2026 wishlist home"><svg class="seal" viewBox="0 0 120 120" role="img" aria-label="Christmas Party 2026">
+  <defs>
+    <path id="arcTop" d="M18 60 A42 42 0 0 1 102 60"/>
+    <path id="arcBot" d="M22 60 A38 38 0 0 0 98 60"/>
+  </defs>
+  <circle cx="60" cy="60" r="58" fill="#C9A227"/>
+  <circle cx="60" cy="60" r="54" fill="#4A1820"/>
+  <circle cx="60" cy="60" r="31" fill="none" stroke="#C9A227" stroke-width="1.2" stroke-dasharray="2 3"/>
+  <text font-family="Figtree, Arial, sans-serif" font-weight="800" font-size="11" letter-spacing="1.6" fill="#E8CB6A" text-anchor="middle"><textPath href="#arcTop" startOffset="50%">CHRISTMAS PARTY</textPath></text>
+  <text font-family="Figtree, Arial, sans-serif" font-weight="800" font-size="12" letter-spacing="3" fill="#E8CB6A" text-anchor="middle" dominant-baseline="hanging"><textPath href="#arcBot" startOffset="50%">2026</textPath></text>
+  <polygon points="15,60 17,57 19,60 17,63" fill="#C9A227"/>
+  <polygon points="101,60 103,57 105,60 103,63" fill="#C9A227"/>
+  <rect x="45" y="59" width="30" height="20" rx="2" fill="#636B2F"/>
+  <rect x="42" y="52" width="36" height="9" rx="2" fill="#7A8338"/>
+  <rect x="57" y="52" width="6" height="27" fill="#E8CB6A"/>
+  <path d="M60 52 C52 42 43 46 50 52 Z M60 52 C68 42 77 46 70 52 Z" fill="#C9A227"/>
+  <polygon class="sstar" points="60,30 62.4,36.8 69.6,37 63.9,41.4 65.9,48.4 60,44.2 54.1,48.4 56.1,41.4 50.4,37 57.6,36.8" fill="#E8CB6A"/>
+</svg></a>
   <canvas id="sparkles" aria-hidden="true"></canvas>
   <div class="parol-wrap">
   <svg class="rays" viewBox="-150 -150 300 300" aria-hidden="true">
