@@ -33,7 +33,7 @@
   .hero{text-align:center; padding:28px 20px 8px; color:#F6E9D0}
   .parol{width:150px; height:auto; display:block; transform-origin:50% 0; filter:drop-shadow(0 0 22px rgba(232,203,106,.45))}
   @keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
-  @media (prefers-reduced-motion:reduce){.parol{animation:none} html{scroll-behavior:auto}}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   .hero h1{font-family:'Rozha One',serif; font-weight:400; font-size:clamp(2.8rem,9vw,5.2rem); line-height:.95; margin:10px 0 6px; color:var(--gold-l); letter-spacing:-.01em}
   .hero .when{font-size:1rem; color:#E9D7BE; margin:0}
   .hero .lede{max-width:34ch; margin:14px auto 0; color:#F6E9D0; opacity:.85}
@@ -181,9 +181,19 @@
   #confetti{position:fixed; inset:0; width:100vw; height:100vh; pointer-events:none; z-index:20}
 
   @media (max-width:520px){ .cd{min-width:58px} .cd .num{font-size:1.55rem} .rays{width:320px;height:320px;margin:-160px 0 0 -160px} }
+  /* Reduced motion: keep light and fades, drop the big movement */
   @media (prefers-reduced-motion:reduce){
-    *,*::before,*::after{animation:none !important; transition:none !important}
+    .parol,.parol-wrap,.rays{animation:none}
+    .rays{animation:glow 4s ease-in-out infinite alternate}
+    .hero h1 .ltr{animation:fadeIn .8s ease-out calc(.3s + var(--i) * 60ms) both}
+    .when,.lede,.countdown,.hero-actions,.panel{animation:fadeIn .8s ease-out both}
+    .tag-hang.enter{animation:fadeIn .8s ease-out calc(.6s + var(--i) * 120ms) both}
+    .tag-hang.fresh{animation:fadeIn .6s ease-out both}
+    .tag-hang:not(.enter):hover,.tag-hang:not(.enter):active{animation:none}
+    .num.flip{animation:none}
+    .btn{transition:none}
   }
+  @keyframes fadeIn{from{opacity:0}}
 
   .fab{display:none}
   footer{text-align:center; color:#E9D7BE; opacity:.7; font-size:.85rem; padding:0 0 30px}
@@ -454,7 +464,7 @@ function render(){
       hang.classList.add('enter');
       if(!firstRender) hang.classList.add('fresh');
       hang.style.setProperty('--i', firstRender ? gi : 0);
-      hang.addEventListener('animationend', e => { if(e.animationName === 'drop') hang.classList.remove('enter','fresh'); });
+      hang.addEventListener('animationend', e => { if(e.animationName === 'drop' || e.animationName === 'fadeIn') hang.classList.remove('enter','fresh'); });
       seenTags.add(key);
     }
     hang.style.setProperty('--str', (28 + (gi * 17) % 26) + 'px');
