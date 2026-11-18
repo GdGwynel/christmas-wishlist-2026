@@ -97,7 +97,7 @@
   .edit-box .btn{padding:8px 14px; font-size:.85rem}
 
   /* Write-your-tag panel */
-  .panel{position:sticky; top:16px; background:#FBF4E6; border-radius:14px; padding:22px 20px 20px; box-shadow:0 18px 40px rgba(0,0,0,.3); border-top:8px solid var(--olive)}
+  .panel{position:sticky; top:78px; background:#FBF4E6; border-radius:14px; padding:22px 20px 20px; box-shadow:0 18px 40px rgba(0,0,0,.3); border-top:8px solid var(--olive)}
   .panel h2{font-family:'Rozha One',serif; font-weight:400; font-size:1.6rem; margin:0; color:var(--wine-2)}
   .panel .hint{color:var(--ink-2); font-size:.9rem; margin:4px 0 16px}
   label{display:block; font-size:.85rem; font-weight:600; color:var(--ink-2); margin:0 0 4px}
@@ -206,6 +206,134 @@
   @keyframes sealSpin{to{transform:rotate(360deg)}}
   @media (max-width:520px){ .hero > a.logo{width:60px; height:60px; top:12px; left:12px} }
 
+
+  /* ===== Top bar ===== */
+  .topbar{position:fixed; top:0; left:0; right:0; z-index:30; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 18px; background:rgba(58,18,24,.88); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid rgba(232,203,106,.25); transform:translateY(-110%); transition:transform .35s ease}
+  .topbar.show{transform:none}
+  .tb-brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--gold-l); font-family:'Rozha One',serif; font-size:1.35rem}
+  .tb-logo{width:34px; height:34px; border-radius:50%; background:var(--gold) center/cover; box-shadow:0 0 0 2px var(--gold); background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20120%20120%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3Cpath%20id%3D%22arcTop%22%20d%3D%22M18%2060%20A42%2042%200%200%201%20102%2060%22/%3E%0A%20%20%20%20%3Cpath%20id%3D%22arcBot%22%20d%3D%22M22%2060%20A38%2038%200%200%200%2098%2060%22/%3E%0A%20%20%3C/defs%3E%0A%20%20%3Ccircle%20cx%3D%2260%22%20cy%3D%2260%22%20r%3D%2258%22%20fill%3D%22%23C9A227%22/%3E%0A%20%20%3Ccircle%20cx%3D%2260%22%20cy%3D%2260%22%20r%3D%2254%22%20fill%3D%22%234A1820%22/%3E%0A%20%20%3Ccircle%20cx%3D%2260%22%20cy%3D%2260%22%20r%3D%2231%22%20fill%3D%22none%22%20stroke%3D%22%23C9A227%22%20stroke-width%3D%221.2%22%20stroke-dasharray%3D%222%203%22/%3E%0A%20%20%3Ctext%20font-family%3D%22Figtree%2C%20Arial%2C%20sans-serif%22%20font-weight%3D%22800%22%20font-size%3D%2211%22%20letter-spacing%3D%221.6%22%20fill%3D%22%23E8CB6A%22%20text-anchor%3D%22middle%22%3E%3CtextPath%20href%3D%22%23arcTop%22%20startOffset%3D%2250%25%22%3ECHRISTMAS%20PARTY%3C/textPath%3E%3C/text%3E%0A%20%20%3Ctext%20font-family%3D%22Figtree%2C%20Arial%2C%20sans-serif%22%20font-weight%3D%22800%22%20font-size%3D%2212%22%20letter-spacing%3D%223%22%20fill%3D%22%23E8CB6A%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22hanging%22%3E%3CtextPath%20href%3D%22%23arcBot%22%20startOffset%3D%2250%25%22%3E2026%3C/textPath%3E%3C/text%3E%0A%20%20%3Cpolygon%20points%3D%2215%2C60%2017%2C57%2019%2C60%2017%2C63%22%20fill%3D%22%23C9A227%22/%3E%0A%20%20%3Cpolygon%20points%3D%22101%2C60%20103%2C57%20105%2C60%20103%2C63%22%20fill%3D%22%23C9A227%22/%3E%0A%20%20%3Crect%20x%3D%2245%22%20y%3D%2259%22%20width%3D%2230%22%20height%3D%2220%22%20rx%3D%222%22%20fill%3D%22%23636B2F%22/%3E%0A%20%20%3Crect%20x%3D%2242%22%20y%3D%2252%22%20width%3D%2236%22%20height%3D%229%22%20rx%3D%222%22%20fill%3D%22%237A8338%22/%3E%0A%20%20%3Crect%20x%3D%2257%22%20y%3D%2252%22%20width%3D%226%22%20height%3D%2227%22%20fill%3D%22%23E8CB6A%22/%3E%0A%20%20%3Cpath%20d%3D%22M60%2052%20C52%2042%2043%2046%2050%2052%20Z%20M60%2052%20C68%2042%2077%2046%2070%2052%20Z%22%20fill%3D%22%23C9A227%22/%3E%0A%20%20%3Cpolygon%20class%3D%22sstar%22%20points%3D%2260%2C30%2062.4%2C36.8%2069.6%2C37%2063.9%2C41.4%2065.9%2C48.4%2060%2C44.2%2054.1%2C48.4%2056.1%2C41.4%2050.4%2C37%2057.6%2C36.8%22%20fill%3D%22%23E8CB6A%22/%3E%0A%3C/svg%3E")}
+  .tb-actions{display:flex; align-items:center; gap:10px}
+  .tb-add{padding:8px 16px; font-size:.9rem}
+  .tb-btn{width:40px; height:40px; border-radius:50%; border:2px solid rgba(232,203,106,.6); background:transparent; color:var(--gold-l); cursor:pointer; display:grid; place-items:center}
+  .tb-btn svg{width:20px; height:20px}
+  .tb-btn[aria-pressed="true"]{background:var(--gold); color:var(--wine); border-color:var(--gold)}
+
+  /* Hero music button labels */
+  .music-toggle svg{width:18px; height:18px; vertical-align:-3px; margin-right:6px}
+  .tb-btn.music-toggle svg{margin:0}
+  .music-toggle .on-l{display:none}
+  .music-toggle[aria-pressed="true"] .on-l{display:inline}
+  .music-toggle[aria-pressed="true"] .off-l{display:none}
+  .btn-line.music-toggle[aria-pressed="true"]{background:var(--olive); border-color:var(--olive); color:#fff}
+
+  /* ===== Jump-to chips ===== */
+  .chips-row{display:flex; align-items:center; gap:10px; margin:0 4px 4px; overflow-x:auto; padding-bottom:6px; scrollbar-width:none}
+  .chips-row::-webkit-scrollbar{display:none}
+  .chips-lbl{color:#E9D7BE; opacity:.75; font-size:.85rem; white-space:nowrap}
+  .chips{display:flex; gap:8px}
+  .chip-btn{font:inherit; font-size:.88rem; font-weight:600; white-space:nowrap; cursor:pointer; color:#F6E9D0; background:rgba(0,0,0,.2); border:1px solid rgba(232,203,106,.35); border-radius:999px; padding:6px 14px; transition:background .15s, border-color .15s}
+  .chip-btn:hover{background:rgba(232,203,106,.15); border-color:var(--gold-l)}
+  .chip-btn.me{border-color:var(--gold); color:var(--gold-l)}
+  .chip-btn.me::before{content:"★ "; color:var(--gold)}
+  .tag-hang.ping .tag{animation:pingTag 1.6s ease-out}
+  @keyframes pingTag{0%{box-shadow:0 0 0 0 rgba(232,203,106,.95), 0 14px 26px rgba(0,0,0,.28)}100%{box-shadow:0 0 0 26px rgba(232,203,106,0), 0 14px 26px rgba(0,0,0,.28)}}
+  .tag-hang.ping{animation:swing 1.4s ease-out}
+
+  /* ===== Panel modes ===== */
+  .seg{display:grid; grid-template-columns:1fr 1fr; background:#EFE2C8; border-radius:999px; padding:4px; margin:-4px 0 16px}
+  .seg button{font:inherit; font-weight:700; font-size:.9rem; border:none; background:transparent; color:var(--ink-2); padding:9px 10px; border-radius:999px; cursor:pointer; transition:background .2s, color .2s}
+  .seg button[aria-pressed="true"]{background:var(--wine-2); color:#fff; box-shadow:0 2px 8px rgba(114,47,55,.35)}
+  .signed{display:none; align-items:center; gap:10px; background:#EFE2C8; border-radius:12px; padding:10px 12px; margin:-4px 0 14px; font-size:.92rem}
+  .signed .avatar{width:30px; height:30px; border-radius:50%; display:grid; place-items:center; background:var(--olive); color:var(--gold-l); font-size:.9rem}
+  .signed #showMine{margin-left:auto}
+  .signed .linkish{white-space:nowrap}
+  .signed > span:nth-child(2){min-width:0}
+  .panel .hint{display:none}
+  .panel[data-mode="new"] .m-new, .panel[data-mode="edit"] .m-edit, .panel[data-mode="in"] .m-in{display:block}
+  .panel[data-mode="in"] .seg{display:none}
+  .panel[data-mode="in"] .signed{display:flex}
+  .panel[data-mode="in"] .id-row{display:none}
+  .switch-line{display:none; font-size:.88rem; color:var(--ink-2); margin:14px 0 0}
+  .panel[data-mode="new"] .switch-line{display:block}
+  .unlock-line{display:none; margin:4px 0 0}
+  .panel[data-mode="edit"] .unlock-line{display:block}
+  .panel[data-mode="edit"] .m-write{display:none}
+  #unlockBtn{width:100%}
+  .hint-line{font-size:.8rem; margin-top:4px; min-height:1em}
+  .hint-line.ok{color:var(--olive-d)} .hint-line.bad{color:var(--err)}
+
+  /* Live preview */
+  .preview{margin-top:18px; border-top:1.5px dashed var(--kraft-d); padding-top:14px}
+  .pv-lbl{display:block; font-size:.8rem; color:var(--ink-2); margin-bottom:8px}
+  .pv-tag{background:var(--kraft); padding:14px 14px 10px; border-radius:4px; transform:rotate(-1deg); clip-path:polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%, 0 14px); background-image:radial-gradient(rgba(94,74,64,.10) 1px, transparent 1.2px); background-size:5px 5px}
+  .pv-tag .tag-name{font-size:1.6rem}
+  #pvItems{list-style:none; margin:6px 0 0; padding:0}
+  #pvItems li{font-weight:700; font-size:.92rem; padding:5px 0; border-bottom:1px solid rgba(94,74,64,.15); animation:fadeIn .3s ease-out}
+  #pvItems li:last-child{border-bottom:none}
+  #pvItems li.ghost{color:#A8978A; font-weight:500; font-style:italic}
+
+  /* ===== Toasts ===== */
+  .toasts{position:fixed; top:14px; left:50%; transform:translateX(-50%); z-index:60; display:grid; gap:8px; width:min(92vw,420px); pointer-events:none}
+  .toast{background:#FBF4E6; color:var(--ink); border-left:5px solid var(--olive); border-radius:10px; padding:12px 16px; font-weight:600; font-size:.92rem; box-shadow:0 12px 30px rgba(0,0,0,.35); opacity:0; transform:translateY(-12px); transition:opacity .3s, transform .3s}
+  .toast.in{opacity:1; transform:none}
+  .toast.err{border-left-color:var(--err)}
+
+  /* ===== Music ===== */
+  .music-fab{position:fixed; left:18px; bottom:18px; z-index:40; width:56px; height:56px; border-radius:50%; border:none; cursor:pointer; background:var(--gold); color:var(--wine); box-shadow:0 10px 26px rgba(0,0,0,.45), 0 0 0 4px rgba(232,203,106,.25); display:grid; place-items:center; transition:transform .15s}
+  .music-fab:hover{transform:scale(1.06)}
+  .music-fab svg{width:24px; height:24px}
+  .music-fab .eq{display:none; position:absolute; bottom:12px; gap:2px; align-items:flex-end; height:12px}
+  .music-fab .eq i{display:block; width:3px; background:var(--wine); border-radius:2px; animation:eq .8s ease-in-out infinite alternate}
+  .music-fab .eq i:nth-child(2){animation-delay:-.3s} .music-fab .eq i:nth-child(3){animation-delay:-.55s}
+  @keyframes eq{from{height:3px}to{height:12px}}
+  body.music-playing .music-fab svg{transform:translateY(-5px) scale(.8)}
+  body.music-playing .music-fab .eq{display:flex}
+  body.music-playing .music-fab{animation:fabGlow 2s ease-in-out infinite}
+  @keyframes fabGlow{50%{box-shadow:0 10px 26px rgba(0,0,0,.45), 0 0 0 10px rgba(232,203,106,.18)}}
+  .music-card{position:fixed; left:18px; bottom:86px; z-index:41; width:280px; background:#2E0F14; color:#F6E9D0; border:1px solid rgba(232,203,106,.4); border-radius:16px; padding:14px; box-shadow:0 20px 50px rgba(0,0,0,.55); animation:cardIn .35s cubic-bezier(.2,.9,.3,1.2)}
+  @keyframes cardIn{from{opacity:0; transform:translateY(16px) scale(.96)}}
+  .mc-head{display:flex; justify-content:space-between; gap:10px; margin-bottom:10px}
+  .mc-now{display:grid; line-height:1.25; min-width:0}
+  .mc-lbl{font-size:.72rem; color:var(--gold); }
+  .mc-now b{font-size:.95rem; color:var(--gold-l); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .mc-now span:last-child{font-size:.82rem; opacity:.8}
+  .mc-x{background:none; border:none; color:#E9D7BE; font-size:1rem; cursor:pointer; width:30px; height:30px; border-radius:50%}
+  .mc-x:hover{background:rgba(255,255,255,.08)}
+  .mc-video{width:100%; height:200px; min-width:200px; border-radius:10px; overflow:hidden; background:#000}
+  .mc-video iframe,#ytPlayer{width:100%; height:100%; display:block}
+  .mc-controls{display:flex; align-items:center; gap:6px; margin-top:12px}
+  .mc-btn{width:36px; height:36px; border-radius:50%; border:none; background:rgba(255,255,255,.08); color:#F6E9D0; cursor:pointer; display:grid; place-items:center; flex:none}
+  .mc-btn:hover{background:rgba(255,255,255,.16)}
+  .mc-btn svg{width:18px; height:18px}
+  .mc-play{width:42px; height:42px; background:var(--gold); color:var(--wine)}
+  .mc-play:hover{background:var(--gold-l)}
+  .mc-play .i-pause{display:none}
+  .mc-play[data-state="playing"] .i-pause{display:block}
+  .mc-play[data-state="playing"] .i-play{display:none}
+  .mc-vol{display:flex; align-items:center; gap:6px; flex:1; min-width:0; margin-left:4px}
+  .mc-mute[data-level="low"] .w2, .mc-mute[data-level="off"] .w1, .mc-mute[data-level="off"] .w2{display:none}
+  input[type=range]#vol{-webkit-appearance:none; appearance:none; width:100%; height:6px; border-radius:999px; padding:0; border:none; background:linear-gradient(90deg, var(--gold) var(--fill,60%), rgba(255,255,255,.18) var(--fill,60%)); cursor:pointer}
+  input[type=range]#vol:focus{box-shadow:0 0 0 3px rgba(232,203,106,.35)}
+  input[type=range]#vol::-webkit-slider-thumb{-webkit-appearance:none; width:16px; height:16px; border-radius:50%; background:var(--gold-l); border:2px solid var(--wine); box-shadow:0 1px 4px rgba(0,0,0,.4)}
+  input[type=range]#vol::-moz-range-thumb{width:14px; height:14px; border-radius:50%; background:var(--gold-l); border:2px solid var(--wine)}
+  .mc-list{display:grid; gap:4px; margin-top:12px}
+  .track{display:grid; text-align:left; font:inherit; background:transparent; color:#F6E9D0; border:1px solid transparent; border-radius:10px; padding:7px 10px; cursor:pointer}
+  .track:hover{background:rgba(255,255,255,.06)}
+  .track.cur{border-color:rgba(232,203,106,.45); background:rgba(232,203,106,.08)}
+  .track span{font-size:.88rem; font-weight:600} .track small{font-size:.75rem; opacity:.7}
+  .track.cur span::before{content:"♪ "; color:var(--gold)}
+  .mc-yt{display:block; margin-top:8px; font-size:.78rem; color:var(--gold-l); opacity:.8}
+
+  @media (max-width:860px){
+    .music-card{left:12px; right:12px; width:auto; bottom:84px}
+    .music-fab{left:14px; bottom:14px; width:52px; height:52px}
+    .tb-add{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .topbar,.toast{transition:none}
+    .music-card,.tag-hang.ping,.tag-hang.ping .tag,body.music-playing .music-fab,#pvItems li{animation:none}
+  }
+
   .fab{display:none}
   footer{text-align:center; color:#E9D7BE; opacity:.7; font-size:.85rem; padding:0 0 30px}
 
@@ -220,7 +348,15 @@
 </style>
 </head>
 <body>
-<header class="hero">
+<div class="topbar" id="topbar">
+  <a class="tb-brand" href="#top"><span class="tb-logo" aria-hidden="true"></span>Wishlist</a>
+  <div class="tb-actions">
+    <button type="button" class="tb-btn music-toggle" aria-pressed="false" aria-label="Toggle Christmas music"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18.5a2.5 2.5 0 1 1-2-2.45V5.5l11-2v11a2.5 2.5 0 1 1-2-2.45V7.1l-7 1.3z" fill="currentColor"/></svg></button>
+    <a class="btn btn-gold tb-add" href="#write">Add your wishes</a>
+  </div>
+</div>
+<div id="toasts" class="toasts" aria-live="polite"></div>
+<header class="hero" id="top">
   <div id="lights" class="lights"></div>
   <a class="logo" href="./" aria-label="Christmas Party 2026 wishlist home"><svg class="seal" viewBox="0 0 120 120" role="img" aria-label="Christmas Party 2026">
   <defs>
@@ -276,6 +412,7 @@
   <div class="hero-actions">
     <a class="btn btn-gold" href="#write">Add your wishes</a>
     <button type="button" class="btn btn-line" id="copyBtn">Copy list for Messenger</button>
+    <button type="button" class="btn btn-line music-toggle" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18.5a2.5 2.5 0 1 1-2-2.45V5.5l11-2v11a2.5 2.5 0 1 1-2-2.45V7.1l-7 1.3z" fill="currentColor"/></svg><span class="off-l">Play Christmas music</span><span class="on-l">Music on</span></button>
   </div>
 </header>
 
@@ -287,15 +424,28 @@
       <h2 id="boardTitle">The tags so far</h2>
       <span id="count"></span>
     </div>
-    <div class="msg" id="listMsg" role="status"></div>
+    <div class="chips-row"><span class="chips-lbl">Jump to</span><div id="chips" class="chips"></div></div>
+    <div class="msg" id="listMsg" role="status" hidden></div>
     <div id="list"><div class="loading">Loading the tags…</div></div>
   </section>
 
-  <aside class="panel" id="write" aria-labelledby="writeTitle">
+  <aside class="panel" id="write" aria-labelledby="writeTitle" data-mode="new">
+    <div class="seg" role="group" aria-label="What do you want to do?">
+      <button type="button" data-mode="new" aria-pressed="true">New tag</button>
+      <button type="button" data-mode="edit" aria-pressed="false">Edit my tag</button>
+    </div>
+    <div class="signed">
+      <span class="avatar" aria-hidden="true">✦</span>
+      <span>Signed in as <b id="whoName"></b></span>
+      <button type="button" class="linkish" id="showMine">Show my tag</button>
+      <button type="button" class="linkish" id="signOut">Switch</button>
+    </div>
     <h2 id="writeTitle">Write your tag</h2>
-    <p class="hint">Pick a 4-digit PIN the first time. Use the same name and PIN on any phone to edit your items later.</p>
-    <form id="wishForm" novalidate>
-      <div class="row">
+    <p class="hint m-new">Pick a 4-digit PIN the first time. Use the same name and PIN on any phone to edit later.</p>
+    <p class="hint m-edit">Already on the board? Enter the name and PIN you used. Edit and Remove buttons will appear on your tag.</p>
+    <p class="hint m-in">Add more wishes below, or edit and remove items right on your tag.</p>
+    <form id="wishForm" novalidate data-mode="new">
+      <div class="row id-row">
         <div class="field">
           <label for="name">Your name</label>
           <input id="name" maxlength="40" autocomplete="given-name" placeholder="Daniel" required>
@@ -306,21 +456,56 @@
         </div>
       </div>
       <div class="unlock-line">
-        <span id="whoami"></span>
-        <button type="button" class="linkish" id="unlockBtn">Already on the list? Unlock my items</button>
+        <span id="whoami" hidden></span>
+        <button type="button" class="btn btn-wine" id="unlockBtn">Unlock my tag</button>
       </div>
-      <div id="items"></div>
-      <div class="btns">
-        <button type="submit" class="btn btn-wine" id="submitBtn">Save to wishlist</button>
-        <button type="button" class="btn btn-olive" id="addItem">Add another item</button>
+      <div class="m-write">
+        <div id="items"></div>
+        <div class="btns">
+          <button type="submit" class="btn btn-wine" id="submitBtn">Save to wishlist</button>
+          <button type="button" class="btn btn-olive" id="addItem">Add another item</button>
+        </div>
+        <p class="switch-line m-new">On the board already? <button type="button" class="linkish" id="toEdit">Edit my tag</button></p>
       </div>
       <div class="msg" id="formMsg" role="status"></div>
     </form>
+    <div class="preview" id="preview" hidden aria-label="Preview of your tag">
+      <span class="pv-lbl">Preview</span>
+      <div class="pv-tag">
+        <div class="tag-head"><span class="tag-to">For</span><h3 class="tag-name" id="pvName">Your name</h3></div>
+        <ul id="pvItems"></ul>
+      </div>
+    </div>
   </aside>
 </main>
 
 <a class="btn btn-gold fab" id="fab" href="#write">Add your wishes</a>
 <canvas id="confetti" aria-hidden="true"></canvas>
+<button type="button" class="music-fab" id="musicBtn" aria-pressed="false" aria-label="Turn music on">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18.5a2.5 2.5 0 1 1-2-2.45V5.5l11-2v11a2.5 2.5 0 1 1-2-2.45V7.1l-7 1.3z" fill="currentColor"/></svg>
+  <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
+</button>
+<section class="music-card" id="musicCard" hidden aria-label="Christmas music player">
+  <div class="mc-head">
+    <div class="mc-now"><span class="mc-lbl">Now playing</span><b id="mTitle"></b><span id="mArtist"></span></div>
+    <button type="button" class="mc-x" id="mClose" aria-label="Turn music off">✕</button>
+  </div>
+  <div class="mc-video"><div id="ytPlayer"></div></div>
+  <div class="mc-controls">
+    <button type="button" class="mc-btn" id="mPrev" aria-label="Previous song"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zM20 5v14L9 12z" fill="currentColor"/></svg></button>
+    <button type="button" class="mc-btn mc-play" id="mPlay" data-state="paused" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg></button>
+    <button type="button" class="mc-btn" id="mNext" aria-label="Next song"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM4 5v14l11-7z" fill="currentColor"/></svg></button>
+    <div class="mc-vol">
+      <button type="button" class="mc-btn mc-mute" id="mMute" aria-label="Mute" data-level="high"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="w1" d="M16 9a4 4 0 0 1 0 6" stroke="currentColor" stroke-width="2" fill="none"/><path class="w2" d="M18.5 6.5a7.5 7.5 0 0 1 0 11" stroke="currentColor" stroke-width="2" fill="none"/></svg></button>
+      <input type="range" id="vol" min="0" max="100" step="1" aria-label="Volume">
+    </div>
+  </div>
+  <div class="mc-list">
+    <button type="button" class="track"><span>All I Want for Christmas Is You</span><small>Mariah Carey</small></button>
+    <button type="button" class="track"><span>A Christmas Carol</span><small>Jose Mari Chan</small></button>
+  </div>
+  <a class="mc-yt" id="mYt" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+</section>
 <footer>Maligayang Pasko 🎄</footer>
 
 <template id="itemTpl">
@@ -335,6 +520,203 @@
   </div>
 </template>
 
+<script>
+// UI layer: toasts, sticky bar, name chips, panel modes, live preview, link hints, music player
+(function(){
+  const q = s => document.querySelector(s);
+  const qa = s => [...document.querySelectorAll(s)];
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ls = (k, v) => { try{ if(v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); }catch(e){ return null; } };
+
+  /* ---------- Toasts ---------- */
+  const toastBox = q('#toasts');
+  function toast(text, type){
+    if(!toastBox || !text) return;
+    const t = document.createElement('div');
+    t.className = 'toast ' + (type || '');
+    t.setAttribute('role', type === 'err' ? 'alert' : 'status');
+    t.textContent = text;
+    toastBox.appendChild(t);
+    requestAnimationFrame(() => t.classList.add('in'));
+    setTimeout(() => { t.classList.remove('in'); setTimeout(() => t.remove(), 400); }, type === 'err' ? 5200 : 3200);
+  }
+
+  /* ---------- Sticky bar appears once the header scrolls away ---------- */
+  const bar = q('#topbar'), hero = q('.hero');
+  if(bar && hero && 'IntersectionObserver' in window){
+    new IntersectionObserver(([e]) => bar.classList.toggle('show', !e.isIntersecting), { rootMargin: '-120px 0px 0px 0px' }).observe(hero);
+  }
+
+  /* ---------- Name chips: jump to someone's tag ---------- */
+  function chips(groups){
+    const box = q('#chips'); if(!box) return;
+    box.replaceChildren();
+    groups.forEach(g => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'chip-btn'; b.textContent = g.name;
+      if(g.items.some(i => i.mine)) b.classList.add('me');
+      b.addEventListener('click', () => jumpTo(g.name));
+      box.appendChild(b);
+    });
+  }
+  function jumpTo(name){
+    const tag = qa('.tag-hang').find(h => (h.querySelector('.tag-name') || {}).textContent === name);
+    if(!tag) return;
+    tag.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+    tag.classList.remove('ping'); void tag.offsetWidth; tag.classList.add('ping');
+  }
+
+  /* ---------- Panel modes: new tag / edit my tag / signed in ---------- */
+  const form = q('#wishForm');
+  let mode = 'new';
+  function signedIn(){ return !!(ls('wishlistName') && ls('wishlistPin')); }
+  function setMode(m){
+    mode = m;
+    qa('.seg button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === m)));
+    sync();
+    if(m === 'edit'){ const n = q('#name'); if(n) n.focus(); }
+  }
+  function sync(){
+    if(!form) return;
+    const inn = signedIn();
+    form.dataset.mode = inn ? 'in' : mode;
+    q('.panel').dataset.mode = inn ? 'in' : mode;
+    const who = q('#whoName'); if(who) who.textContent = ls('wishlistName') || '';
+    q('#writeTitle').textContent = inn ? 'Add more wishes' : (mode === 'edit' ? 'Edit my tag' : 'Write your tag');
+    preview();
+  }
+  qa('.seg button').forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
+  const toEdit = q('#toEdit'); if(toEdit) toEdit.addEventListener('click', () => setMode('edit'));
+  const signOut = q('#signOut'); if(signOut) signOut.addEventListener('click', () => { q('#unlockBtn').click(); setMode('new'); });
+  const showMine = q('#showMine'); if(showMine) showMine.addEventListener('click', () => jumpTo(ls('wishlistName') || ''));
+
+  /* ---------- Live preview of the tag being written ---------- */
+  function preview(){
+    const box = q('#preview'); if(!box) return;
+    const name = (q('#name') || {}).value || '';
+    const rows = qa('#items .item-block').map(b => ({
+      item: b.querySelector('.f-item').value.trim(), option: b.querySelector('.f-option').value.trim()
+    })).filter(r => r.item);
+    const m = form.dataset.mode;
+    box.hidden = m === 'edit' || (!rows.length && (m === 'in' || !name.trim()));
+    q('#pvName').textContent = name.trim() || 'Your name';
+    const ul = q('#pvItems'); ul.replaceChildren();
+    (rows.length ? rows : [{ item: 'Your first wish', option: '', ghost: true }]).forEach(r => {
+      const li = document.createElement('li');
+      li.textContent = r.item; if(r.ghost) li.className = 'ghost';
+      if(r.option){ const c = document.createElement('span'); c.className = 'chip'; c.textContent = r.option; li.appendChild(c); }
+      ul.appendChild(li);
+    });
+  }
+  if(form){
+    form.addEventListener('input', e => {
+      if(e.target.classList.contains('f-link')) linkHint(e.target);
+      if(e.target.id === 'pin') e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
+      preview();
+    });
+    new MutationObserver(preview).observe(q('#items'), { childList: true });
+  }
+
+  /* ---------- Link hint under each link field ---------- */
+  function linkHint(input){
+    let hint = input.parentElement.querySelector('.hint-line');
+    if(!hint){ hint = document.createElement('div'); hint.className = 'hint-line'; input.parentElement.appendChild(hint); }
+    const v = input.value.trim();
+    if(!v){ hint.textContent = ''; hint.className = 'hint-line'; return; }
+    let host = '';
+    try{ host = new URL(v).hostname; }catch(e){}
+    if(!/^https?:\/\//i.test(v) || !host){ hint.textContent = 'Paste the full link, starting with https://'; hint.className = 'hint-line bad'; return; }
+    const shop = /shopee/.test(host) ? 'Shopee' : /tiktok/.test(host) ? 'TikTok' : /lazada/.test(host) ? 'Lazada' : host.replace(/^www\./, '');
+    hint.textContent = shop + ' link ✓'; hint.className = 'hint-line ok';
+  }
+
+  /* ---------- Music: official YouTube videos via the IFrame API ---------- */
+  const TRACKS = [
+    { id: 'yXQViqx6GMY', title: 'All I Want for Christmas Is You', artist: 'Mariah Carey' },
+    { id: '5Y_pSY-qEDg', title: 'A Christmas Carol', artist: 'Jose Mari Chan' }
+  ];
+  const mBtn = q('#musicBtn'), mCard = q('#musicCard'), vol = q('#vol');
+  let player = null, ready = false, idx = 0, on = false, apiLoading = false;
+  let volume = Number(ls('wishlistVol') || 60);
+  if(vol) vol.value = volume;
+
+  function setOn(v){
+    on = v;
+    document.body.classList.toggle('music-on', v);
+    if(mBtn){ mBtn.setAttribute('aria-pressed', String(v)); mBtn.setAttribute('aria-label', v ? 'Turn music off' : 'Turn music on'); }
+    qa('.music-toggle').forEach(b => b.setAttribute('aria-pressed', String(v)));
+    if(mCard) mCard.hidden = !v;
+  }
+  function showTrack(){
+    const t = TRACKS[idx];
+    q('#mTitle').textContent = t.title; q('#mArtist').textContent = t.artist;
+    q('#mYt').href = 'https://www.youtube.com/watch?v=' + t.id;
+    qa('.track').forEach((b, i) => b.classList.toggle('cur', i === idx));
+  }
+  function loadApi(){
+    if(apiLoading) return; apiLoading = true;
+    window.onYouTubeIframeAPIReady = () => {
+      player = new YT.Player('ytPlayer', {
+        width: '100%', height: '100%', videoId: TRACKS[idx].id,
+        playerVars: { autoplay: 1, controls: 1, rel: 0, playsinline: 1, modestbranding: 1 },
+        events: {
+          onReady: e => { ready = true; e.target.setVolume(volume); if(on) e.target.playVideo(); },
+          onStateChange: e => {
+            q('#mPlay').dataset.state = e.data === 1 ? 'playing' : 'paused';
+            q('#mPlay').setAttribute('aria-label', e.data === 1 ? 'Pause' : 'Play');
+            document.body.classList.toggle('music-playing', e.data === 1);
+            if(e.data === 0) next();
+          },
+          onError: () => {
+            toast(TRACKS[idx].title + ' can’t play here. Opening the next song.', 'err');
+            setTimeout(next, 800);
+          }
+        }
+      });
+    };
+    const s = document.createElement('script'); s.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(s);
+  }
+  function play(i){
+    if(typeof i === 'number'){ idx = (i + TRACKS.length) % TRACKS.length; showTrack(); if(ready) player.loadVideoById(TRACKS[idx].id); }
+    else if(ready) player.playVideo();
+  }
+  function next(){ play(idx + 1); }
+  function prev(){ play(idx - 1); }
+  function toggleMusic(){
+    if(on){ setOn(false); if(ready) player.pauseVideo(); return; }
+    setOn(true); showTrack();
+    if(!player) loadApi(); else play();
+  }
+  qa('.music-toggle').forEach(b => b.addEventListener('click', toggleMusic));
+  if(mBtn) mBtn.addEventListener('click', toggleMusic);
+  const mClose = q('#mClose'); if(mClose) mClose.addEventListener('click', () => { setOn(false); if(ready) player.pauseVideo(); });
+  const mPlay = q('#mPlay'); if(mPlay) mPlay.addEventListener('click', () => {
+    if(!ready) return;
+    player.getPlayerState() === 1 ? player.pauseVideo() : player.playVideo();
+  });
+  const mNext = q('#mNext'); if(mNext) mNext.addEventListener('click', next);
+  const mPrev = q('#mPrev'); if(mPrev) mPrev.addEventListener('click', prev);
+  qa('.track').forEach((b, i) => b.addEventListener('click', () => play(i)));
+  function setVol(v){
+    volume = Math.max(0, Math.min(100, Math.round(v)));
+    if(vol){ vol.value = volume; vol.style.setProperty('--fill', volume + '%'); }
+    ls('wishlistVol', volume);
+    if(ready){ player.setVolume(volume); volume === 0 ? player.mute() : player.unMute(); }
+    const m = q('#mMute'); if(m){ m.dataset.level = volume === 0 ? 'off' : volume < 50 ? 'low' : 'high'; m.setAttribute('aria-label', volume === 0 ? 'Unmute' : 'Mute'); }
+  }
+  let lastVol = volume || 60;
+  if(vol) vol.addEventListener('input', () => setVol(vol.value));
+  const mMute = q('#mMute'); if(mMute) mMute.addEventListener('click', () => {
+    if(volume > 0){ lastVol = volume; setVol(0); } else setVol(lastVol || 60);
+  });
+  setVol(volume);
+  setOn(false);
+
+  window.ui = { toast, chips, sync, jumpTo, setMode };
+  sync();
+})();
+
+</script>
 <script>
 // Apps Script web app URL
 const API_URL = 'https://script.google.com/macros/s/AKfycbw-NwjYkY_20W48LJIMR4qw8t8eAUuzBKA2lA-6DPsPPca8LXKXJPvlPUbzGfm7-3fxNA/exec';
@@ -367,10 +749,16 @@ function remember(name, pin){ store('wishlistName', name); store('wishlistPin', 
 function updateWho(){
   const n = store('wishlistName'), p = store('wishlistPin');
   $('#whoami').textContent = (n && p) ? 'Signed in as ' + n : '';
-  $('#unlockBtn').textContent = (n && p) ? 'Not you? Switch' : 'Already on the list? Unlock my items';
+  $('#unlockBtn').textContent = (n && p) ? 'Switch' : 'Unlock my tag';
+  if(window.ui) window.ui.sync();
 }
 
-function setMsg(el, text, type){ el.textContent = text || ''; el.className = 'msg' + (type ? ' ' + type : ''); }
+function setMsg(el, text, type){
+  // Successes and list messages go to toasts; form errors stay next to the fields
+  const isList = el && el.id === 'listMsg';
+  if(text && (isList || type === 'ok') && window.ui){ window.ui.toast(text, type); text = ''; type = ''; }
+  el.textContent = text || ''; el.className = 'msg' + (type ? ' ' + type : '');
+}
 
 function addItemBlock(){
   const node = $('#itemTpl').content.firstElementChild.cloneNode(true);
@@ -511,6 +899,7 @@ function render(){
     listEl.appendChild(hang);
   });
   firstRender = false;
+  if(window.ui) window.ui.chips(groups);
 }
 
 function savedIdentity(){
@@ -554,7 +943,7 @@ $('#unlockBtn').addEventListener('click', async () => {
   if(store('wishlistName') && store('wishlistPin')){
     store('wishlistName', null); store('wishlistPin', null);
     $('#name').value = ''; $('#pin').value = '';
-    updateWho(); setMsg(msg,'Signed out. Enter a name and PIN.',''); $('#name').focus();
+    updateWho(); if(window.ui) window.ui.toast('Signed out.', ''); $('#name').focus();
     load(); return;
   }
   const { name, pin } = identity();
@@ -567,7 +956,8 @@ $('#unlockBtn').addEventListener('click', async () => {
     remember(name, pin);
     data = res.items; render();
     const n = data.filter(d => d.mine).length;
-    setMsg(msg, n ? 'Unlocked! You can edit your ' + n + ' item' + (n>1?'s':'') + ' below.' : 'PIN saved. Add your first item below.', 'ok');
+    setMsg(msg, n ? 'Unlocked! Edit or remove items right on your tag.' : 'PIN saved. Add your first wish.', 'ok');
+    if(n && window.ui) setTimeout(() => window.ui.jumpTo(name), 300);
   }catch(e){
     setMsg(msg, e.message || 'Couldn\'t unlock.', 'err');
   }finally{ btn.disabled = false; }
