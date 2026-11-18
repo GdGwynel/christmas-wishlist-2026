@@ -226,7 +226,7 @@
   </svg>
   </div>
   <h1>Wishlist</h1>
-  <p class="when">Christmas Party 2026 · Saturday, 12 December</p>
+  <p class="when">Christmas Party 2026 · Saturday, 19 December</p>
   <div class="countdown" id="countdown" role="timer" aria-label="Time until the party">
     <div class="cd" data-k="d"><span class="num">--</span><span class="lbl">days</span></div>
     <div class="cd" data-k="h"><span class="num">--</span><span class="lbl">hours</span></div>
@@ -685,7 +685,7 @@ load();
   let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(buildLights, 150); });
 
   /* Countdown to the party (date from the invite page) */
-  const PARTY = new Date('2026-12-12T12:00:00+08:00').getTime();
+  const PARTY = new Date('2026-12-19T12:00:00+08:00').getTime();
   const cd = q('#countdown');
   if(cd){
     const cells = {};
