@@ -4,93 +4,179 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Christmas Party 2026 · Wishlist</title>
+<meta name="description" content="Our Christmas Party 2026 wishlist. Add yours.">
+<meta name="theme-color" content="#4A1820">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Rozha+One&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --wine:#722F37; --wine-d:#5a242b; --olive:#636B2F; --gold:#B59410;
-    --cream:#FBF6EE; --paper:#fff; --ink:#2b2220; --muted:#7a6d68; --line:#eadfd3;
+    --wine:#4A1820; --wine-2:#722F37; --olive:#636B2F; --olive-d:#4C5223;
+    --gold:#C9A227; --gold-l:#E8CB6A; --kraft:#E7D3AE; --kraft-d:#D4BC8F;
+    --ink:#2A1418; --ink-2:#5E4A40; --err:#9E1B1B;
+    --r:6px;
   }
   *{box-sizing:border-box}
-  body{margin:0;font-family:'DM Sans',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.5}
-  a{color:var(--wine)}
-  .hero{background:var(--wine);color:#fff;text-align:center;padding:56px 20px 64px;position:relative;overflow:hidden}
-  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(90deg,var(--wine) 0 33%,var(--olive) 33% 66%,var(--gold) 66%)}
-  .eyebrow{letter-spacing:.25em;text-transform:uppercase;font-size:.75rem;color:#f3d98a;margin:0 0 8px}
-  h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,7vw,3.6rem);margin:0;line-height:1.1}
-  h1 em{color:#f3d98a;font-style:italic}
-  .sub{margin:12px auto 0;max-width:520px;opacity:.9}
-  .snow{position:absolute;inset:0;pointer-events:none;opacity:.35;background-image:radial-gradient(#fff 1px,transparent 1.5px);background-size:28px 28px}
-  main{max-width:760px;margin:-28px auto 60px;padding:0 16px;position:relative}
-  .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 6px 24px rgba(114,47,55,.07);margin-bottom:22px}
-  h2{font-family:'Playfair Display',serif;color:var(--wine);margin:0 0 4px;font-size:1.5rem}
-  .hint{color:var(--muted);font-size:.9rem;margin:0 0 16px}
-  label{display:block;font-size:.8rem;font-weight:700;color:var(--olive);text-transform:uppercase;letter-spacing:.06em;margin:0 0 4px}
-  input,textarea{width:100%;font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fffdf9}
-  input:focus,textarea:focus{outline:2px solid var(--gold);border-color:transparent}
-  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .item-block{border:1px dashed var(--line);border-radius:12px;padding:14px;margin:14px 0;position:relative;background:#fffcf6}
-  .item-block .num{font-family:'Playfair Display',serif;color:var(--gold);font-weight:700}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; font-family:'Figtree',system-ui,sans-serif; font-size:16px; line-height:1.55; color:var(--ink);
+    background-color:var(--wine);
+    background-image:
+      repeating-linear-gradient(135deg, rgba(201,162,39,.07) 0 2px, transparent 2px 22px),
+      repeating-linear-gradient(45deg, rgba(0,0,0,.08) 0 2px, transparent 2px 22px);
+    min-height:100vh;
+  }
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--gold-l); outline-offset:2px}
+
+  /* Hero */
+  .hero{text-align:center; padding:28px 20px 8px; color:#F6E9D0}
+  .parol{width:150px; height:auto; display:block; margin:0 auto -6px; transform-origin:50% 0; animation:sway 6s ease-in-out infinite; filter:drop-shadow(0 0 22px rgba(232,203,106,.35))}
+  @keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+  @media (prefers-reduced-motion:reduce){.parol{animation:none} html{scroll-behavior:auto}}
+  .hero h1{font-family:'Rozha One',serif; font-weight:400; font-size:clamp(2.8rem,9vw,5.2rem); line-height:.95; margin:10px 0 6px; color:var(--gold-l); letter-spacing:-.01em}
+  .hero .when{font-size:1rem; color:#E9D7BE; margin:0}
+  .hero .lede{max-width:34ch; margin:14px auto 0; color:#F6E9D0; opacity:.85}
+  .hero-actions{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:20px 0 6px}
+
+  /* Buttons */
+  .btn{text-decoration:none; display:inline-block; font:inherit; font-weight:700; cursor:pointer; border:2px solid transparent; border-radius:999px; padding:11px 20px; line-height:1.1; transition:transform .12s, background .12s}
+  .btn:active{transform:translateY(1px)}
+  .btn:disabled{opacity:.6; cursor:wait}
+  .btn-gold{background:var(--gold); color:var(--wine); border-color:var(--gold)}
+  .btn-gold:hover{background:var(--gold-l)}
+  .btn-line{background:transparent; color:var(--gold-l); border-color:rgba(232,203,106,.6)}
+  .btn-line:hover{border-color:var(--gold-l)}
+  .btn-wine{background:var(--wine-2); color:#fff}
+  .btn-wine:hover{background:var(--wine)}
+  .btn-plain{background:transparent; color:var(--ink-2); border-color:var(--kraft-d)}
+  .btn-olive{background:transparent; color:var(--olive-d); border-color:var(--olive)}
+
+  /* Layout */
+  .wrap{max-width:1080px; margin:0 auto; padding:18px 16px 110px; display:grid; grid-template-columns:minmax(0,1fr) 360px; gap:28px; align-items:start}
+  .board-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; color:#F6E9D0; margin:4px 4px 14px}
+  .board-head h2{font-family:'Rozha One',serif; font-weight:400; font-size:1.7rem; margin:0; color:#F6E9D0}
+  #count{font-size:.9rem; opacity:.75}
+  .banner{grid-column:1/-1; background:var(--gold-l); color:var(--wine); border-radius:var(--r); padding:10px 14px; font-size:.9rem}
+
+  /* Gift tags */
+  #list{display:grid; grid-template-columns:repeat(auto-fill,minmax(270px,1fr)); gap:34px 22px; padding-top:22px; align-items:start}
+  .tag{
+    position:relative; background:var(--kraft); color:var(--ink);
+    padding:34px 18px 18px; transform:rotate(var(--tilt,0deg));
+    clip-path:polygon(22px 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%, 0 22px);
+    box-shadow:0 14px 26px rgba(0,0,0,.28);
+    background-image:radial-gradient(rgba(94,74,64,.10) 1px, transparent 1.2px); background-size:5px 5px;
+  }
+  .tag::before{ /* punched hole with gold ring */
+    content:""; position:absolute; top:10px; left:50%; width:14px; height:14px; margin-left:-7px; border-radius:50%;
+    background:var(--wine); box-shadow:0 0 0 3px var(--gold);
+  }
+  .tag-wrap{position:relative}
+  .tag-head{display:flex; align-items:baseline; gap:8px; border-bottom:1.5px dashed var(--kraft-d); padding-bottom:8px; margin-bottom:6px; flex-wrap:wrap}
+  .tag-to{font-size:.85rem; color:var(--ink-2)}
+  .tag-name{font-family:'Gochi Hand',cursive; font-weight:400; font-size:2rem; line-height:1; margin:0; color:var(--wine-2)}
+  .stamp{margin-left:auto; font-size:.72rem; font-weight:700; color:var(--olive-d); border:2px solid var(--olive); border-radius:4px; padding:1px 6px; transform:rotate(-6deg)}
+  .wish{padding:10px 0; border-bottom:1px solid rgba(94,74,64,.18)}
+  .wish:last-child{border-bottom:none; padding-bottom:0}
+  .wish-title{font-weight:700; font-size:1.02rem; line-height:1.3}
+  .chip{display:inline-block; font-size:.76rem; font-weight:600; color:var(--olive-d); background:rgba(99,107,47,.14); border-radius:999px; padding:1px 8px; margin-left:6px; vertical-align:2px}
+  .notes{font-size:.88rem; color:var(--ink-2); margin-top:2px}
+  .wish-actions{display:flex; gap:12px; align-items:center; margin-top:6px; flex-wrap:wrap}
+  .link-btn{font-size:.88rem; font-weight:700; color:var(--wine-2); text-decoration:underline; text-decoration-color:var(--gold); text-decoration-thickness:2px; text-underline-offset:3px}
+  .link-btn:hover{color:var(--wine)}
+  .tiny{font:inherit; font-size:.8rem; background:none; border:none; padding:0; color:var(--ink-2); cursor:pointer; text-decoration:underline; text-underline-offset:2px}
+  .tiny:disabled{opacity:.6}
+  .empty,.loading{color:#F6E9D0; opacity:.8; padding:30px 4px; grid-column:1/-1}
+
+  /* Inline editor */
+  .edit-box{display:grid; gap:8px}
+  .edit-box .row{display:grid; grid-template-columns:1fr 1fr; gap:8px}
+  .edit-box .btns{display:flex; gap:8px}
+  .edit-box .btn{padding:8px 14px; font-size:.85rem}
+
+  /* Write-your-tag panel */
+  .panel{position:sticky; top:16px; background:#FBF4E6; border-radius:14px; padding:22px 20px 20px; box-shadow:0 18px 40px rgba(0,0,0,.3); border-top:8px solid var(--olive)}
+  .panel h2{font-family:'Rozha One',serif; font-weight:400; font-size:1.6rem; margin:0; color:var(--wine-2)}
+  .panel .hint{color:var(--ink-2); font-size:.9rem; margin:4px 0 16px}
+  label{display:block; font-size:.85rem; font-weight:600; color:var(--ink-2); margin:0 0 4px}
+  input{width:100%; font:inherit; font-size:1rem; color:var(--ink); padding:10px 12px; border:1.5px solid var(--kraft-d); border-radius:8px; background:#fff}
+  input::placeholder{color:#A8978A}
+  input:focus{outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgba(201,162,39,.25)}
+  .row{display:grid; grid-template-columns:1fr 1fr; gap:10px}
   .field{margin-bottom:10px}
-  .remove-item{position:absolute;top:10px;right:10px;background:none;border:none;color:var(--muted);cursor:pointer;font-size:.85rem}
-  .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
-  button{font:inherit;cursor:pointer;border-radius:999px;padding:10px 18px;border:1px solid transparent;font-weight:700}
-  .primary{background:var(--wine);color:#fff}
-  .primary:hover{background:var(--wine-d)}
-  .primary:disabled{opacity:.6;cursor:wait}
-  .ghost{background:transparent;border-color:var(--olive);color:var(--olive)}
-  .gold{background:var(--gold);color:#fff}
-  .msg{margin-top:10px;font-size:.9rem;min-height:1.2em}
-  .msg.err{color:#b3261e}.msg.ok{color:var(--olive)}
-  .list-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
-  .person{border-top:1px solid var(--line);padding-top:16px;margin-top:16px}
-  .person:first-of-type{border-top:none;margin-top:0;padding-top:0}
-  .person h3{margin:0 0 10px;font-family:'Playfair Display',serif;font-size:1.25rem;display:flex;align-items:center;gap:10px}
-  .badge{font-family:'DM Sans',sans-serif;font-size:.7rem;background:var(--olive);color:#fff;border-radius:999px;padding:2px 8px;letter-spacing:.04em}
-  .wish{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:10px 12px;border-radius:10px;background:#fbf7f0;margin-bottom:8px}
-  .wish-main{min-width:0}
-  .wish-title{font-weight:700}
-  .chip{display:inline-block;font-size:.75rem;background:#f3e7c4;color:#6b5509;border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:middle}
-  .notes{color:var(--muted);font-size:.85rem;margin-top:2px}
-  .wish-actions{display:flex;gap:6px;flex-shrink:0;align-items:center}
-  .link-btn{font-size:.8rem;text-decoration:none;background:var(--wine);color:#fff;padding:6px 12px;border-radius:999px;white-space:nowrap}
-  .del{background:none;border:1px solid var(--line);color:var(--muted);padding:5px 10px;font-size:.75rem;font-weight:500}
-  .empty,.loading{color:var(--muted);text-align:center;padding:18px}
-  .banner{background:#fff4d6;border:1px solid #f0d98a;color:#6b5509;border-radius:12px;padding:10px 14px;font-size:.85rem;margin-bottom:16px}
-  .unlock-line{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:.85rem;color:var(--olive);margin:-2px 0 4px}
-  .linkish{background:none;border:none;padding:0;color:var(--wine);text-decoration:underline;font-weight:500;font-size:.85rem}
-  .edit-box{flex:1;display:grid;gap:8px}
-  .edit-box input{padding:8px 10px}
-  .edit-box .row{gap:8px}
-  .mini{padding:6px 12px;font-size:.8rem}
-  footer{text-align:center;color:var(--muted);font-size:.85rem;padding-bottom:40px}
-  @media (max-width:560px){.row{grid-template-columns:1fr}.wish{flex-direction:column}.wish-actions{align-self:flex-end}}
+  .unlock-line{display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; font-size:.85rem; color:var(--olive-d); margin:-2px 0 8px}
+  .linkish{font:inherit; font-size:.85rem; background:none; border:none; padding:0; color:var(--wine-2); text-decoration:underline; cursor:pointer; font-weight:600}
+  .item-block{position:relative; border-left:3px solid var(--gold); padding:4px 0 2px 12px; margin:14px 0}
+  .item-block .num{color:var(--gold); font-weight:700}
+  .remove-item{position:absolute; top:0; right:0; background:none; border:none; color:var(--ink-2); cursor:pointer; font-size:.8rem; text-decoration:underline}
+  .btns{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
+  .msg{margin-top:10px; font-size:.9rem; min-height:1.2em}
+  .msg.err{color:var(--err)} .msg.ok{color:var(--olive-d)}
+  #listMsg{color:#F6E9D0; margin:0 4px} #listMsg.err{color:#FFB4A8} #listMsg.ok{color:var(--gold-l)}
+
+  .fab{display:none}
+  footer{text-align:center; color:#E9D7BE; opacity:.7; font-size:.85rem; padding:0 0 30px}
+
+  @media (max-width:860px){
+    .wrap{grid-template-columns:1fr; gap:22px}
+    .panel{position:static}
+    .fab{display:block; position:fixed; left:50%; bottom:16px; transform:translateX(-50%); z-index:5; box-shadow:0 8px 24px rgba(0,0,0,.4); transition:opacity .2s}
+    .fab.hide{opacity:0; pointer-events:none}
+    .parol{width:120px}
+  }
+  @media (max-width:480px){ .row,.edit-box .row{grid-template-columns:1fr} #list{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
 <header class="hero">
-  <div class="snow"></div>
-  <p class="eyebrow">Christmas Party 2026</p>
-  <h1>Our <em>Wishlist</em></h1>
-  <p class="sub">Add what you'd love to unwrap. Include the size, color or variant so whoever buys it gets it right.</p>
+  <svg class="parol" viewBox="0 0 200 250" aria-hidden="true">
+    <line x1="100" y1="0" x2="100" y2="22" stroke="#E8CB6A" stroke-width="2"/>
+    <g transform="translate(100 105)">
+      <polygon points="0,-82 19,-26 78,-25 31,10 48,66 0,33 -48,66 -31,10 -78,-25 -19,-26" fill="#C9A227" stroke="#E8CB6A" stroke-width="3" stroke-linejoin="round"/>
+      <polygon points="0,-58 13,-18 55,-18 22,7 34,47 0,23 -34,47 -22,7 -55,-18 -13,-18" fill="#722F37"/>
+      <polygon points="0,-36 8,-11 34,-11 13,4 21,29 0,14 -21,29 -13,4 -34,-11 -8,-11" fill="#636B2F"/>
+      <circle r="12" fill="#E8CB6A"/>
+      <circle r="5" fill="#722F37"/>
+    </g>
+    <path d="M78 168 C70 195 80 215 70 245" stroke="#E8CB6A" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M100 160 C104 190 96 210 100 240" stroke="#C9A227" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M122 168 C130 195 120 215 130 245" stroke="#E8CB6A" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <circle cx="70" cy="245" r="4" fill="#C9A227"/><circle cx="100" cy="240" r="4" fill="#E8CB6A"/><circle cx="130" cy="245" r="4" fill="#C9A227"/>
+  </svg>
+  <h1>Wishlist</h1>
+  <p class="when">Christmas Party 2026</p>
+  <p class="lede">Hang your tag on the board. Add the size, color or variant so whoever buys it gets it right.</p>
+  <div class="hero-actions">
+    <a class="btn btn-gold" href="#write">Add your wishes</a>
+    <button type="button" class="btn btn-line" id="copyBtn">Copy list for Messenger</button>
+  </div>
 </header>
 
-<main>
-  <div id="demoBanner" class="banner" hidden>Preview mode: not connected to the sheet yet, so changes won't be saved.</div>
+<main class="wrap">
+  <div id="demoBanner" class="banner" hidden>Preview mode: not connected to the sheet, so changes won't be saved.</div>
 
-  <section class="card">
-    <h2>Add your wishes</h2>
-    <p class="hint">Pick a PIN the first time. Use the same name and PIN on any phone to edit or remove your items later.</p>
+  <section aria-labelledby="boardTitle">
+    <div class="board-head">
+      <h2 id="boardTitle">The tags so far</h2>
+      <span id="count"></span>
+    </div>
+    <div class="msg" id="listMsg" role="status"></div>
+    <div id="list"><div class="loading">Loading the tags…</div></div>
+  </section>
+
+  <aside class="panel" id="write" aria-labelledby="writeTitle">
+    <h2 id="writeTitle">Write your tag</h2>
+    <p class="hint">Pick a 4-digit PIN the first time. Use the same name and PIN on any phone to edit your items later.</p>
     <form id="wishForm" novalidate>
       <div class="row">
         <div class="field">
           <label for="name">Your name</label>
-          <input id="name" maxlength="40" autocomplete="given-name" placeholder="e.g. Daniel" required>
+          <input id="name" maxlength="40" autocomplete="given-name" placeholder="Daniel" required>
         </div>
         <div class="field">
-          <label for="pin">4-digit PIN</label>
-          <input id="pin" inputmode="numeric" pattern="\d{4}" maxlength="4" autocomplete="off" placeholder="So only you can edit">
+          <label for="pin">PIN</label>
+          <input id="pin" inputmode="numeric" pattern="\d{4}" maxlength="4" autocomplete="off" placeholder="4 digits">
         </div>
       </div>
       <div class="unlock-line">
@@ -99,34 +185,26 @@
       </div>
       <div id="items"></div>
       <div class="btns">
-        <button type="button" class="ghost" id="addItem">+ Add another item</button>
-        <button type="submit" class="primary" id="submitBtn">Save to wishlist</button>
+        <button type="submit" class="btn btn-wine" id="submitBtn">Save to wishlist</button>
+        <button type="button" class="btn btn-olive" id="addItem">Add another item</button>
       </div>
       <div class="msg" id="formMsg" role="status"></div>
     </form>
-  </section>
-
-  <section class="card">
-    <div class="list-head">
-      <h2>Everyone's wishlist</h2>
-      <button type="button" class="gold" id="copyBtn">Copy for Messenger</button>
-    </div>
-    <div class="msg" id="listMsg" role="status"></div>
-    <div id="list"><div class="loading">Loading wishlist…</div></div>
-  </section>
+  </aside>
 </main>
 
+<a class="btn btn-gold fab" id="fab" href="#write">Add your wishes</a>
 <footer>Maligayang Pasko 🎄</footer>
 
 <template id="itemTpl">
   <div class="item-block">
-    <button type="button" class="remove-item" aria-label="Remove item">✕ Remove</button>
-    <div class="field"><label>Item <span class="num"></span></label><input class="f-item" maxlength="120" placeholder="e.g. UGREEN FineTrack"></div>
+    <button type="button" class="remove-item">Remove</button>
+    <div class="field"><label>Item <span class="num"></span></label><input class="f-item" maxlength="120" placeholder="UGREEN FineTrack"></div>
     <div class="row">
-      <div class="field"><label>Option (if any)</label><input class="f-option" maxlength="80" placeholder="Size, color, variant"></div>
+      <div class="field"><label>Option, if any</label><input class="f-option" maxlength="80" placeholder="Size, color, variant"></div>
       <div class="field"><label>Link</label><input class="f-link" type="url" maxlength="2000" placeholder="https://shopee.ph/..."></div>
     </div>
-    <div class="field"><label>Notes</label><input class="f-notes" maxlength="200" placeholder="e.g. checkout via my TikTok showcase"></div>
+    <div class="field"><label>Notes</label><input class="f-notes" maxlength="200" placeholder="Checkout via my TikTok showcase"></div>
   </div>
 </template>
 
@@ -215,14 +293,14 @@ function wishView(it){
   w.appendChild(m);
   const a = el('div','wish-actions');
   if(it.link && /^https?:\/\//i.test(it.link)){
-    const l = el('a','link-btn','View on ' + hostOf(it.link));
+    const l = el('a','link-btn', shopName(it.link));
     l.href = it.link; l.target = '_blank'; l.rel = 'noopener noreferrer';
     a.appendChild(l);
   }
   if(it.mine){
-    const e = el('button','del','Edit');
+    const e = el('button','tiny','Edit');
     e.addEventListener('click', () => w.replaceWith(wishEditor(it)));
-    const d = el('button','del','Remove');
+    const d = el('button','tiny','Remove');
     d.addEventListener('click', () => removeItem(it.id, d));
     a.append(e, d);
   }
@@ -240,8 +318,8 @@ function wishEditor(it){
   row.append(fOpt, fLink);
   const fNotes = input('', it.notes, 'Notes', 200);
   const btns = el('div','btns');
-  const save = el('button','primary mini','Save');
-  const cancel = el('button','ghost mini','Cancel');
+  const save = el('button','btn btn-wine','Save');
+  const cancel = el('button','btn btn-plain','Cancel');
   const msg = el('div','msg');
   cancel.addEventListener('click', () => w.replaceWith(wishView(it)));
   save.addEventListener('click', async () => {
@@ -266,17 +344,32 @@ function wishEditor(it){
   return w;
 }
 
+function shopName(url){
+  const h = hostOf(url);
+  if(/shopee/.test(h)) return 'Open on Shopee';
+  if(/tiktok/.test(h)) return 'Open on TikTok';
+  if(/lazada/.test(h)) return 'Open on Lazada';
+  return 'Open link';
+}
+
 function render(){
   listEl.replaceChildren();
-  if(!data.length){ listEl.appendChild(el('div','empty','No wishes yet. Be the first!')); return; }
-  for(const g of groupByName(data)){
-    const p = el('div','person');
-    const h = el('h3', null, g.name);
-    if(g.items.some(i => i.mine)) h.appendChild(el('span','badge','You'));
-    p.appendChild(h);
-    g.items.forEach(it => p.appendChild(wishView(it)));
-    listEl.appendChild(p);
-  }
+  const groups = groupByName(data);
+  $('#count').textContent = data.length ? data.length + (data.length === 1 ? ' wish' : ' wishes') + ' from ' + groups.length + (groups.length === 1 ? ' person' : ' people') : '';
+  if(!data.length){ listEl.appendChild(el('div','empty','No wishes yet. Write the first tag.')); return; }
+  groups.forEach((g, gi) => {
+    const tag = el('article','tag');
+    tag.style.setProperty('--tilt', (gi % 3 === 0 ? -1.2 : gi % 3 === 1 ? 0.8 : -0.4) + 'deg');
+    const head = el('header','tag-head');
+    head.appendChild(el('span','tag-to','For'));
+    head.appendChild(el('h3','tag-name', g.name));
+    if(g.items.some(i => i.mine)) head.appendChild(el('span','stamp','Yours'));
+    tag.appendChild(head);
+    const ul = el('div','tag-items');
+    g.items.forEach(it => ul.appendChild(wishView(it)));
+    tag.appendChild(ul);
+    listEl.appendChild(tag);
+  });
 }
 
 function savedIdentity(){
@@ -420,6 +513,14 @@ $('#demoBanner').hidden = !DEMO;
 updateWho();
 addItemBlock();
 load();
+
+// Hide the floating button while the form is on screen
+(function(){
+  const fab = $('#fab');
+  if(!fab || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(es => es.forEach(e => fab.classList.toggle('hide', e.isIntersecting)), { threshold: 0.15 }).observe($('#write'));
+})();
+
 </script>
 </body>
 </html>
