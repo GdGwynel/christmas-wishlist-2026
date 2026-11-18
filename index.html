@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Christmas Party 2026 · Wishlist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --wine:#722F37; --wine-d:#5a242b; --olive:#636B2F; --gold:#B59410;
+    --cream:#FBF6EE; --paper:#fff; --ink:#2b2220; --muted:#7a6d68; --line:#eadfd3;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'DM Sans',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.5}
+  a{color:var(--wine)}
+  .hero{background:var(--wine);color:#fff;text-align:center;padding:56px 20px 64px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(90deg,var(--wine) 0 33%,var(--olive) 33% 66%,var(--gold) 66%)}
+  .eyebrow{letter-spacing:.25em;text-transform:uppercase;font-size:.75rem;color:#f3d98a;margin:0 0 8px}
+  h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,7vw,3.6rem);margin:0;line-height:1.1}
+  h1 em{color:#f3d98a;font-style:italic}
+  .sub{margin:12px auto 0;max-width:520px;opacity:.9}
+  .snow{position:absolute;inset:0;pointer-events:none;opacity:.35;background-image:radial-gradient(#fff 1px,transparent 1.5px);background-size:28px 28px}
+  main{max-width:760px;margin:-28px auto 60px;padding:0 16px;position:relative}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 6px 24px rgba(114,47,55,.07);margin-bottom:22px}
+  h2{font-family:'Playfair Display',serif;color:var(--wine);margin:0 0 4px;font-size:1.5rem}
+  .hint{color:var(--muted);font-size:.9rem;margin:0 0 16px}
+  label{display:block;font-size:.8rem;font-weight:700;color:var(--olive);text-transform:uppercase;letter-spacing:.06em;margin:0 0 4px}
+  input,textarea{width:100%;font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fffdf9}
+  input:focus,textarea:focus{outline:2px solid var(--gold);border-color:transparent}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .item-block{border:1px dashed var(--line);border-radius:12px;padding:14px;margin:14px 0;position:relative;background:#fffcf6}
+  .item-block .num{font-family:'Playfair Display',serif;color:var(--gold);font-weight:700}
+  .field{margin-bottom:10px}
+  .remove-item{position:absolute;top:10px;right:10px;background:none;border:none;color:var(--muted);cursor:pointer;font-size:.85rem}
+  .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+  button{font:inherit;cursor:pointer;border-radius:999px;padding:10px 18px;border:1px solid transparent;font-weight:700}
+  .primary{background:var(--wine);color:#fff}
+  .primary:hover{background:var(--wine-d)}
+  .primary:disabled{opacity:.6;cursor:wait}
+  .ghost{background:transparent;border-color:var(--olive);color:var(--olive)}
+  .gold{background:var(--gold);color:#fff}
+  .msg{margin-top:10px;font-size:.9rem;min-height:1.2em}
+  .msg.err{color:#b3261e}.msg.ok{color:var(--olive)}
+  .list-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .person{border-top:1px solid var(--line);padding-top:16px;margin-top:16px}
+  .person:first-of-type{border-top:none;margin-top:0;padding-top:0}
+  .person h3{margin:0 0 10px;font-family:'Playfair Display',serif;font-size:1.25rem;display:flex;align-items:center;gap:10px}
+  .badge{font-family:'DM Sans',sans-serif;font-size:.7rem;background:var(--olive);color:#fff;border-radius:999px;padding:2px 8px;letter-spacing:.04em}
+  .wish{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:10px 12px;border-radius:10px;background:#fbf7f0;margin-bottom:8px}
+  .wish-main{min-width:0}
+  .wish-title{font-weight:700}
+  .chip{display:inline-block;font-size:.75rem;background:#f3e7c4;color:#6b5509;border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+  .notes{color:var(--muted);font-size:.85rem;margin-top:2px}
+  .wish-actions{display:flex;gap:6px;flex-shrink:0;align-items:center}
+  .link-btn{font-size:.8rem;text-decoration:none;background:var(--wine);color:#fff;padding:6px 12px;border-radius:999px;white-space:nowrap}
+  .del{background:none;border:1px solid var(--line);color:var(--muted);padding:5px 10px;font-size:.75rem;font-weight:500}
+  .empty,.loading{color:var(--muted);text-align:center;padding:18px}
+  .banner{background:#fff4d6;border:1px solid #f0d98a;color:#6b5509;border-radius:12px;padding:10px 14px;font-size:.85rem;margin-bottom:16px}
+  .unlock-line{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:.85rem;color:var(--olive);margin:-2px 0 4px}
+  .linkish{background:none;border:none;padding:0;color:var(--wine);text-decoration:underline;font-weight:500;font-size:.85rem}
+  .edit-box{flex:1;display:grid;gap:8px}
+  .edit-box input{padding:8px 10px}
+  .edit-box .row{gap:8px}
+  .mini{padding:6px 12px;font-size:.8rem}
+  footer{text-align:center;color:var(--muted);font-size:.85rem;padding-bottom:40px}
+  @media (max-width:560px){.row{grid-template-columns:1fr}.wish{flex-direction:column}.wish-actions{align-self:flex-end}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="snow"></div>
+  <p class="eyebrow">Christmas Party 2026</p>
+  <h1>Our <em>Wishlist</em></h1>
+  <p class="sub">Add what you'd love to unwrap. Include the size, color or variant so whoever buys it gets it right.</p>
+</header>
+
+<main>
+  <div id="demoBanner" class="banner" hidden>Preview mode: not connected to the sheet yet, so changes won't be saved.</div>
+
+  <section class="card">
+    <h2>Add your wishes</h2>
+    <p class="hint">Pick a PIN the first time. Use the same name and PIN on any phone to edit or remove your items later.</p>
+    <form id="wishForm" novalidate>
+      <div class="row">
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" maxlength="40" autocomplete="given-name" placeholder="e.g. Daniel" required>
+        </div>
+        <div class="field">
+          <label for="pin">4-digit PIN</label>
+          <input id="pin" inputmode="numeric" pattern="\d{4}" maxlength="4" autocomplete="off" placeholder="So only you can edit">
+        </div>
+      </div>
+      <div class="unlock-line">
+        <span id="whoami"></span>
+        <button type="button" class="linkish" id="unlockBtn">Already on the list? Unlock my items</button>
+      </div>
+      <div id="items"></div>
+      <div class="btns">
+        <button type="button" class="ghost" id="addItem">+ Add another item</button>
+        <button type="submit" class="primary" id="submitBtn">Save to wishlist</button>
+      </div>
+      <div class="msg" id="formMsg" role="status"></div>
+    </form>
+  </section>
+
+  <section class="card">
+    <div class="list-head">
+      <h2>Everyone's wishlist</h2>
+      <button type="button" class="gold" id="copyBtn">Copy for Messenger</button>
+    </div>
+    <div class="msg" id="listMsg" role="status"></div>
+    <div id="list"><div class="loading">Loading wishlist…</div></div>
+  </section>
+</main>
+
+<footer>Maligayang Pasko 🎄</footer>
+
+<template id="itemTpl">
+  <div class="item-block">
+    <button type="button" class="remove-item" aria-label="Remove item">✕ Remove</button>
+    <div class="field"><label>Item <span class="num"></span></label><input class="f-item" maxlength="120" placeholder="e.g. UGREEN FineTrack"></div>
+    <div class="row">
+      <div class="field"><label>Option (if any)</label><input class="f-option" maxlength="80" placeholder="Size, color, variant"></div>
+      <div class="field"><label>Link</label><input class="f-link" type="url" maxlength="2000" placeholder="https://shopee.ph/..."></div>
+    </div>
+    <div class="field"><label>Notes</label><input class="f-notes" maxlength="200" placeholder="e.g. checkout via my TikTok showcase"></div>
+  </div>
+</template>
+
+<script>
+// Apps Script web app URL
+const API_URL = 'https://script.google.com/macros/s/AKfycbw-NwjYkY_20W48LJIMR4qw8t8eAUuzBKA2lA-6DPsPPca8LXKXJPvlPUbzGfm7-3fxNA/exec';
+
+const DEMO = !/^https:\/\/script\.google\.com\//.test(API_URL);
+const $ = s => document.querySelector(s);
+const itemsEl = $('#items'), listEl = $('#list');
+let data = [];
+
+function store(key, val){
+  try{
+    if(val === undefined) return localStorage.getItem(key);
+    if(val === null) localStorage.removeItem(key); else localStorage.setItem(key, val);
+  }catch(e){ return null; }
+}
+function getToken(){
+  let t = store('wishlistToken');
+  if(!t){
+    t = (crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2) + Date.now().toString(36) + Math.random().toString(36).slice(2));
+    store('wishlistToken', t);
+  }
+  return t || '';
+}
+const TOKEN = getToken();
+
+function identity(){
+  return { name: $('#name').value.trim(), pin: $('#pin').value.trim() };
+}
+function remember(name, pin){ store('wishlistName', name); store('wishlistPin', pin); updateWho(); }
+function updateWho(){
+  const n = store('wishlistName'), p = store('wishlistPin');
+  $('#whoami').textContent = (n && p) ? 'Signed in as ' + n : '';
+  $('#unlockBtn').textContent = (n && p) ? 'Not you? Switch' : 'Already on the list? Unlock my items';
+}
+
+function setMsg(el, text, type){ el.textContent = text || ''; el.className = 'msg' + (type ? ' ' + type : ''); }
+
+function addItemBlock(){
+  const node = $('#itemTpl').content.firstElementChild.cloneNode(true);
+  node.querySelector('.remove-item').addEventListener('click', () => { node.remove(); renumber(); });
+  itemsEl.appendChild(node);
+  renumber();
+  return node;
+}
+function renumber(){
+  const blocks = itemsEl.querySelectorAll('.item-block');
+  blocks.forEach((b,i) => {
+    b.querySelector('.num').textContent = '#' + (i+1);
+    b.querySelector('.remove-item').hidden = blocks.length === 1;
+  });
+  $('#addItem').hidden = blocks.length >= 10;
+}
+
+function hostOf(url){
+  try{ return new URL(url).hostname.replace(/^www\./,'').replace(/^vt\./,''); }catch(e){ return 'link'; }
+}
+function el(tag, cls, text){
+  const n = document.createElement(tag);
+  if(cls) n.className = cls;
+  if(text != null) n.textContent = text;
+  return n;
+}
+function input(cls, value, placeholder, max){
+  const i = el('input', cls); i.value = value || ''; i.placeholder = placeholder; i.maxLength = max; return i;
+}
+function groupByName(items){
+  const groups = new Map();
+  for(const it of items){
+    const key = it.name.trim().toLowerCase();
+    if(!groups.has(key)) groups.set(key, { name: it.name.trim(), items: [] });
+    groups.get(key).items.push(it);
+  }
+  return [...groups.values()];
+}
+
+function wishView(it){
+  const w = el('div','wish');
+  const m = el('div','wish-main');
+  const t = el('div','wish-title', it.item);
+  if(it.option) t.appendChild(el('span','chip', it.option));
+  m.appendChild(t);
+  if(it.notes) m.appendChild(el('div','notes', it.notes));
+  w.appendChild(m);
+  const a = el('div','wish-actions');
+  if(it.link && /^https?:\/\//i.test(it.link)){
+    const l = el('a','link-btn','View on ' + hostOf(it.link));
+    l.href = it.link; l.target = '_blank'; l.rel = 'noopener noreferrer';
+    a.appendChild(l);
+  }
+  if(it.mine){
+    const e = el('button','del','Edit');
+    e.addEventListener('click', () => w.replaceWith(wishEditor(it)));
+    const d = el('button','del','Remove');
+    d.addEventListener('click', () => removeItem(it.id, d));
+    a.append(e, d);
+  }
+  w.appendChild(a);
+  return w;
+}
+
+function wishEditor(it){
+  const w = el('div','wish');
+  const box = el('div','edit-box');
+  const fItem = input('', it.item, 'Item', 120);
+  const row = el('div','row');
+  const fOpt = input('', it.option, 'Option (size, color)', 80);
+  const fLink = input('', it.link, 'https://...', 2000);
+  row.append(fOpt, fLink);
+  const fNotes = input('', it.notes, 'Notes', 200);
+  const btns = el('div','btns');
+  const save = el('button','primary mini','Save');
+  const cancel = el('button','ghost mini','Cancel');
+  const msg = el('div','msg');
+  cancel.addEventListener('click', () => w.replaceWith(wishView(it)));
+  save.addEventListener('click', async () => {
+    const fields = { item: fItem.value.trim(), option: fOpt.value.trim(), link: fLink.value.trim(), notes: fNotes.value.trim() };
+    if(!fields.item){ setMsg(msg,'Item name can\'t be empty.','err'); return; }
+    if(fields.link && !/^https?:\/\//i.test(fields.link)){ setMsg(msg,'Links should start with https://','err'); return; }
+    save.disabled = true; save.textContent = 'Saving…';
+    try{
+      if(DEMO){ Object.assign(it, fields); render(); return; }
+      const res = await api({ action:'update', id: it.id, fields, ...savedIdentity() });
+      if(!res.ok) throw new Error(res.error);
+      data = res.items; render();
+    }catch(e){
+      setMsg(msg, e.message || 'Couldn\'t save.', 'err');
+      save.disabled = false; save.textContent = 'Save';
+    }
+  });
+  btns.append(save, cancel);
+  box.append(fItem, row, fNotes, btns, msg);
+  w.appendChild(box);
+  setTimeout(() => fItem.focus(), 0);
+  return w;
+}
+
+function render(){
+  listEl.replaceChildren();
+  if(!data.length){ listEl.appendChild(el('div','empty','No wishes yet. Be the first!')); return; }
+  for(const g of groupByName(data)){
+    const p = el('div','person');
+    const h = el('h3', null, g.name);
+    if(g.items.some(i => i.mine)) h.appendChild(el('span','badge','You'));
+    p.appendChild(h);
+    g.items.forEach(it => p.appendChild(wishView(it)));
+    listEl.appendChild(p);
+  }
+}
+
+function savedIdentity(){
+  return { token: TOKEN, name: store('wishlistName') || '', pin: store('wishlistPin') || '' };
+}
+
+async function api(body){
+  const r = await fetch(API_URL, { method:'POST', body: JSON.stringify(body) });
+  return r.json();
+}
+
+async function load(){
+  if(DEMO){ data = DEMO_DATA.slice(); render(); return; }
+  try{
+    const res = await api({ action:'list', ...savedIdentity() });
+    if(!res.ok) throw new Error(res.error || 'Could not load');
+    data = res.items; render();
+    if(res.pinError){ store('wishlistPin', null); $('#pin').value = ''; updateWho(); setMsg($('#listMsg'), res.pinError + ' Unlock again to edit your items.', 'err'); }
+    else setMsg($('#listMsg'),'');
+  }catch(e){
+    if(!data.length) listEl.replaceChildren(el('div','empty','Couldn\'t load the wishlist. Refresh to try again.'));
+    else setMsg($('#listMsg'),'Couldn\'t refresh, showing the last loaded list.','err');
+  }
+}
+
+async function removeItem(id, btn){
+  btn.disabled = true; btn.textContent = 'Removing…';
+  if(DEMO){ data = data.filter(d => d.id !== id); render(); return; }
+  try{
+    const res = await api({ action:'delete', id, ...savedIdentity() });
+    if(!res.ok) throw new Error(res.error);
+    data = res.items; render();
+  }catch(e){
+    setMsg($('#listMsg'), e.message || 'Couldn\'t remove that item.', 'err');
+    btn.disabled = false; btn.textContent = 'Remove';
+  }
+}
+
+$('#unlockBtn').addEventListener('click', async () => {
+  const msg = $('#formMsg');
+  if(store('wishlistName') && store('wishlistPin')){
+    store('wishlistName', null); store('wishlistPin', null);
+    $('#name').value = ''; $('#pin').value = '';
+    updateWho(); setMsg(msg,'Signed out. Enter a name and PIN.',''); $('#name').focus();
+    load(); return;
+  }
+  const { name, pin } = identity();
+  if(!name || !/^\d{4}$/.test(pin)){ setMsg(msg,'Enter your name and 4-digit PIN above, then tap Unlock.','err'); (!name ? $('#name') : $('#pin')).focus(); return; }
+  if(DEMO){ data.forEach(d => d.mine = d.name.toLowerCase() === name.toLowerCase()); remember(name, pin); render(); setMsg(msg,'Unlocked. You can edit your items below.','ok'); return; }
+  const btn = $('#unlockBtn'); btn.disabled = true;
+  try{
+    const res = await api({ action:'unlock', token: TOKEN, name, pin });
+    if(!res.ok) throw new Error(res.error);
+    remember(name, pin);
+    data = res.items; render();
+    const n = data.filter(d => d.mine).length;
+    setMsg(msg, n ? 'Unlocked! You can edit your ' + n + ' item' + (n>1?'s':'') + ' below.' : 'PIN saved. Add your first item below.', 'ok');
+  }catch(e){
+    setMsg(msg, e.message || 'Couldn\'t unlock.', 'err');
+  }finally{ btn.disabled = false; }
+});
+
+$('#addItem').addEventListener('click', () => addItemBlock().querySelector('.f-item').focus());
+
+$('#wishForm').addEventListener('submit', async ev => {
+  ev.preventDefault();
+  const msg = $('#formMsg');
+  const { name, pin } = identity();
+  if(!name){ setMsg(msg,'Please enter your name.','err'); $('#name').focus(); return; }
+  if(!/^\d{4}$/.test(pin)){ setMsg(msg,'Please set a 4-digit PIN so you can edit your list later.','err'); $('#pin').focus(); return; }
+  const items = [];
+  for(const b of itemsEl.querySelectorAll('.item-block')){
+    const item = b.querySelector('.f-item').value.trim();
+    const link = b.querySelector('.f-link').value.trim();
+    if(!item && !link) continue;
+    if(!item){ setMsg(msg,'Every link needs an item name.','err'); b.querySelector('.f-item').focus(); return; }
+    if(link && !/^https?:\/\//i.test(link)){ setMsg(msg,'Links should start with https://','err'); b.querySelector('.f-link').focus(); return; }
+    items.push({ item, link, option: b.querySelector('.f-option').value.trim(), notes: b.querySelector('.f-notes').value.trim() });
+  }
+  if(!items.length){ setMsg(msg,'Add at least one item.','err'); return; }
+
+  const btn = $('#submitBtn'); btn.disabled = true; btn.textContent = 'Saving…';
+  try{
+    if(DEMO){
+      items.forEach((it,i) => data.push({ ...it, id:'demo'+Date.now()+i, name, mine:true }));
+      remember(name, pin); render();
+    }else{
+      const res = await api({ action:'add', name, pin, items, token: TOKEN });
+      if(!res.ok) throw new Error(res.error);
+      remember(name, pin);
+      data = res.items; render();
+    }
+    itemsEl.replaceChildren(); addItemBlock();
+    setMsg(msg,'Saved! 🎁 Remember your PIN to edit later.','ok');
+  }catch(e){
+    setMsg(msg, e.message || 'Couldn\'t save. Please try again.', 'err');
+  }finally{
+    btn.disabled = false; btn.textContent = 'Save to wishlist';
+  }
+});
+
+$('#copyBtn').addEventListener('click', async () => {
+  const groups = groupByName(data);
+  let text = '🎄 WISHLIST 🎄\n';
+  groups.forEach((g,i) => {
+    text += '\n' + (i+1) + '. ' + g.name.toUpperCase() + '\n';
+    for(const it of g.items){
+      let line = '• ' + it.item;
+      if(it.option) line += ' (' + it.option + ')';
+      if(it.notes) line += ' - ' + it.notes;
+      text += line + '\n';
+      if(it.link) text += it.link + '\n';
+    }
+  });
+  text += '\nAdd or edit yours: ' + location.href.split('#')[0].split('?')[0];
+  try{
+    await navigator.clipboard.writeText(text);
+    setMsg($('#listMsg'),'Copied! Paste it in the group chat.','ok');
+  }catch(e){
+    const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); setMsg($('#listMsg'),'Copied! Paste it in the group chat.','ok'); }
+    catch(_){ setMsg($('#listMsg'),'Couldn\'t copy automatically.','err'); }
+    ta.remove();
+  }
+});
+
+const DEMO_DATA = [
+  {id:'d1',name:'Bill',item:'Blanc Nué Vinyl Tote',option:'Size XL, pink',link:'https://vt.tiktok.com/ZS9fT8wdmPeta-tgzMX/',notes:''},
+  {id:'d2',name:'Bill',item:'32oz Berry After Glow',option:'',link:'https://vt.tiktok.com/ZS9fE8wKJvWEQ-DjRU4/',notes:'Yung lampas voucher sa cash in'},
+  {id:'d3',name:'Allainah',item:'Ulanzi tripod',option:'',link:'https://vt.tiktok.com/ZS9fTjA8269o7-WIGYG/',notes:'Sa tiktok ko icheckout pls, like sa showcase'},
+  {id:'d4',name:'Allainah',item:'Curler',option:'',link:'https://vt.tiktok.com/ZS9fTj4SCHL49-RyAox/',notes:'Sa tiktok ko icheckout pls, like sa showcase'},
+  {id:'d5',name:'Allainah',item:'Matcha chasen',option:'',link:'https://s.shopee.ph/7pusQtBXbq',notes:''},
+  {id:'d6',name:'Daniel',item:'UGREEN FineTrack',option:'1 pc',link:'https://shopee.ph/product/64922227/47302578329',notes:''},
+  {id:'d7',name:'Daniel',item:'WiFi LED Ceiling Light',option:'',link:'https://shopee.ph/product/655867716/20845431494',notes:''},
+  {id:'d8',name:'Daniel',item:'TPMS',option:'',link:'https://shopee.ph/product/669419904/22842119351',notes:''}
+];
+
+$('#name').value = store('wishlistName') || '';
+$('#pin').value = store('wishlistPin') || '';
+$('#demoBanner').hidden = !DEMO;
+updateWho();
+addItemBlock();
+load();
+</script>
+</body>
+</html>
