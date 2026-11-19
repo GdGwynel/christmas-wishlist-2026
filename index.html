@@ -338,6 +338,26 @@
   footer .credit a{color:var(--gold-l)}
   .music-fab[aria-pressed="true"]{background:var(--olive); color:var(--gold-l)}
   .music-fab[aria-pressed="true"] .eq i{background:var(--gold-l)}
+
+  /* ===== Mobile overflow fixes ===== */
+  html,body{overflow-x:hidden; max-width:100%}
+  .wrap > *, #list > *, .tag-hang, .tag, .wish, .wish-main{min-width:0}
+  .wish-title,.notes,.tag-name,.chip{overflow-wrap:anywhere; word-break:break-word}
+  .chip{white-space:normal}
+  .board-head{flex-wrap:wrap}
+  body > footer{padding:0 20px 30px}
+  @media (max-width:860px){
+    .wrap{grid-template-columns:minmax(0,1fr)}
+    body > footer{padding:0 20px 110px; text-align:center}
+  }
+  @media (max-width:480px){
+    #list{grid-template-columns:minmax(0,1fr)}
+    .row,.edit-box .row{grid-template-columns:minmax(0,1fr)}
+    .btns .btn{flex:1 1 auto}
+    .panel{padding:20px 16px}
+    .wrap{padding-left:14px; padding-right:14px}
+  }
+
   .fab{display:none}
   footer{text-align:center; color:#E9D7BE; opacity:.7; font-size:.85rem; padding:0 0 30px}
 
