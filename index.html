@@ -334,6 +334,10 @@
     .music-card,.tag-hang.ping,.tag-hang.ping .tag,body.music-playing .music-fab,#pvItems li{animation:none}
   }
 
+  footer .credit{display:block; font-size:.75rem; margin-top:6px; opacity:.8}
+  footer .credit a{color:var(--gold-l)}
+  .music-fab[aria-pressed="true"]{background:var(--olive); color:var(--gold-l)}
+  .music-fab[aria-pressed="true"] .eq i{background:var(--gold-l)}
   .fab{display:none}
   footer{text-align:center; color:#E9D7BE; opacity:.7; font-size:.85rem; padding:0 0 30px}
 
@@ -412,7 +416,7 @@
   <div class="hero-actions">
     <a class="btn btn-gold" href="#write">Add your wishes</a>
     <button type="button" class="btn btn-line" id="copyBtn">Copy list for Messenger</button>
-    <button type="button" class="btn btn-line music-toggle" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18.5a2.5 2.5 0 1 1-2-2.45V5.5l11-2v11a2.5 2.5 0 1 1-2-2.45V7.1l-7 1.3z" fill="currentColor"/></svg><span class="off-l">Play Christmas music</span><span class="on-l">Music on</span></button>
+    <button type="button" class="btn btn-line music-toggle" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18.5a2.5 2.5 0 1 1-2-2.45V5.5l11-2v11a2.5 2.5 0 1 1-2-2.45V7.1l-7 1.3z" fill="currentColor"/></svg><span class="off-l">Play music</span><span class="on-l">Music on</span></button>
   </div>
 </header>
 
@@ -485,28 +489,7 @@
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18.5a2.5 2.5 0 1 1-2-2.45V5.5l11-2v11a2.5 2.5 0 1 1-2-2.45V7.1l-7 1.3z" fill="currentColor"/></svg>
   <span class="eq" aria-hidden="true"><i></i><i></i><i></i></span>
 </button>
-<section class="music-card" id="musicCard" hidden aria-label="Christmas music player">
-  <div class="mc-head">
-    <div class="mc-now"><span class="mc-lbl">Now playing</span><b id="mTitle"></b><span id="mArtist"></span></div>
-    <button type="button" class="mc-x" id="mClose" aria-label="Turn music off">✕</button>
-  </div>
-  <div class="mc-video"><div id="ytPlayer"></div></div>
-  <div class="mc-controls">
-    <button type="button" class="mc-btn" id="mPrev" aria-label="Previous song"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zM20 5v14L9 12z" fill="currentColor"/></svg></button>
-    <button type="button" class="mc-btn mc-play" id="mPlay" data-state="paused" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg></button>
-    <button type="button" class="mc-btn" id="mNext" aria-label="Next song"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM4 5v14l11-7z" fill="currentColor"/></svg></button>
-    <div class="mc-vol">
-      <button type="button" class="mc-btn mc-mute" id="mMute" aria-label="Mute" data-level="high"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path class="w1" d="M16 9a4 4 0 0 1 0 6" stroke="currentColor" stroke-width="2" fill="none"/><path class="w2" d="M18.5 6.5a7.5 7.5 0 0 1 0 11" stroke="currentColor" stroke-width="2" fill="none"/></svg></button>
-      <input type="range" id="vol" min="0" max="100" step="1" aria-label="Volume">
-    </div>
-  </div>
-  <div class="mc-list">
-    <button type="button" class="track"><span>All I Want for Christmas Is You</span><small>Mariah Carey</small></button>
-    <button type="button" class="track"><span>A Christmas Carol</span><small>Jose Mari Chan</small></button>
-  </div>
-  <a class="mc-yt" id="mYt" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-</section>
-<footer>Maligayang Pasko 🎄</footer>
+<footer>Maligayang Pasko 🎄<span class="credit">Music: Jingle Bells, We Wish You a Merry Christmas and Deck the Halls by <a href="https://incompetech.com" target="_blank" rel="noopener noreferrer">Kevin MacLeod (incompetech.com)</a>, licensed under <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">CC BY 3.0</a></span></footer>
 
 <template id="itemTpl">
   <div class="item-block">
@@ -630,86 +613,34 @@
     hint.textContent = shop + ' link ✓'; hint.className = 'hint-line ok';
   }
 
-  /* ---------- Music: official YouTube videos via the IFrame API ---------- */
+  /* ---------- Background music: free instrumentals, one on/off toggle ---------- */
   const TRACKS = [
-    { id: 'yXQViqx6GMY', title: 'All I Want for Christmas Is You', artist: 'Mariah Carey' },
-    { id: '5Y_pSY-qEDg', title: 'A Christmas Carol', artist: 'Jose Mari Chan' }
+    'https://upload.wikimedia.org/wikipedia/commons/4/4d/Jingle_Bells_%28ISRC_USUAN1100187%29.mp3',
+    'https://upload.wikimedia.org/wikipedia/commons/a/a6/We_Wish_you_a_Merry_Christmas_%28ISRC_USUAN1100369%29.mp3',
+    'https://upload.wikimedia.org/wikipedia/commons/a/a6/Deck_the_Halls_A_%28ISRC_USUAN1100263%29.mp3'
   ];
-  const mBtn = q('#musicBtn'), mCard = q('#musicCard'), vol = q('#vol');
-  let player = null, ready = false, idx = 0, on = false, apiLoading = false;
-  let volume = Number(ls('wishlistVol') || 60);
-  if(vol) vol.value = volume;
-
+  const audio = new Audio();
+  audio.preload = 'none';
+  audio.volume = 0.45;
+  let idx = 0, on = false;
+  audio.addEventListener('ended', () => { idx = (idx + 1) % TRACKS.length; audio.src = TRACKS[idx]; if(on) audio.play().catch(() => {}); });
+  audio.addEventListener('playing', () => document.body.classList.add('music-playing'));
+  audio.addEventListener('pause', () => document.body.classList.remove('music-playing'));
+  audio.addEventListener('error', () => { if(!on) return; idx = (idx + 1) % TRACKS.length; audio.src = TRACKS[idx]; audio.play().catch(() => {}); });
   function setOn(v){
     on = v;
-    document.body.classList.toggle('music-on', v);
-    if(mBtn){ mBtn.setAttribute('aria-pressed', String(v)); mBtn.setAttribute('aria-label', v ? 'Turn music off' : 'Turn music on'); }
-    qa('.music-toggle').forEach(b => b.setAttribute('aria-pressed', String(v)));
-    if(mCard) mCard.hidden = !v;
+    qa('.music-toggle, #musicBtn').forEach(b => {
+      b.setAttribute('aria-pressed', String(v));
+      b.setAttribute('aria-label', v ? 'Turn music off' : 'Turn music on');
+    });
   }
-  function showTrack(){
-    const t = TRACKS[idx];
-    q('#mTitle').textContent = t.title; q('#mArtist').textContent = t.artist;
-    q('#mYt').href = 'https://www.youtube.com/watch?v=' + t.id;
-    qa('.track').forEach((b, i) => b.classList.toggle('cur', i === idx));
-  }
-  function loadApi(){
-    if(apiLoading) return; apiLoading = true;
-    window.onYouTubeIframeAPIReady = () => {
-      player = new YT.Player('ytPlayer', {
-        width: '100%', height: '100%', videoId: TRACKS[idx].id,
-        playerVars: { autoplay: 1, controls: 1, rel: 0, playsinline: 1, modestbranding: 1 },
-        events: {
-          onReady: e => { ready = true; e.target.setVolume(volume); if(on) e.target.playVideo(); },
-          onStateChange: e => {
-            q('#mPlay').dataset.state = e.data === 1 ? 'playing' : 'paused';
-            q('#mPlay').setAttribute('aria-label', e.data === 1 ? 'Pause' : 'Play');
-            document.body.classList.toggle('music-playing', e.data === 1);
-            if(e.data === 0) next();
-          },
-          onError: () => {
-            toast(TRACKS[idx].title + ' can’t play here. Opening the next song.', 'err');
-            setTimeout(next, 800);
-          }
-        }
-      });
-    };
-    const s = document.createElement('script'); s.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(s);
-  }
-  function play(i){
-    if(typeof i === 'number'){ idx = (i + TRACKS.length) % TRACKS.length; showTrack(); if(ready) player.loadVideoById(TRACKS[idx].id); }
-    else if(ready) player.playVideo();
-  }
-  function next(){ play(idx + 1); }
-  function prev(){ play(idx - 1); }
   function toggleMusic(){
-    if(on){ setOn(false); if(ready) player.pauseVideo(); return; }
-    setOn(true); showTrack();
-    if(!player) loadApi(); else play();
+    if(on){ audio.pause(); setOn(false); return; }
+    if(!audio.src) audio.src = TRACKS[idx];
+    setOn(true);
+    audio.play().catch(() => { setOn(false); toast('Tap the music button again to start the music.', 'err'); });
   }
-  qa('.music-toggle').forEach(b => b.addEventListener('click', toggleMusic));
-  if(mBtn) mBtn.addEventListener('click', toggleMusic);
-  const mClose = q('#mClose'); if(mClose) mClose.addEventListener('click', () => { setOn(false); if(ready) player.pauseVideo(); });
-  const mPlay = q('#mPlay'); if(mPlay) mPlay.addEventListener('click', () => {
-    if(!ready) return;
-    player.getPlayerState() === 1 ? player.pauseVideo() : player.playVideo();
-  });
-  const mNext = q('#mNext'); if(mNext) mNext.addEventListener('click', next);
-  const mPrev = q('#mPrev'); if(mPrev) mPrev.addEventListener('click', prev);
-  qa('.track').forEach((b, i) => b.addEventListener('click', () => play(i)));
-  function setVol(v){
-    volume = Math.max(0, Math.min(100, Math.round(v)));
-    if(vol){ vol.value = volume; vol.style.setProperty('--fill', volume + '%'); }
-    ls('wishlistVol', volume);
-    if(ready){ player.setVolume(volume); volume === 0 ? player.mute() : player.unMute(); }
-    const m = q('#mMute'); if(m){ m.dataset.level = volume === 0 ? 'off' : volume < 50 ? 'low' : 'high'; m.setAttribute('aria-label', volume === 0 ? 'Unmute' : 'Mute'); }
-  }
-  let lastVol = volume || 60;
-  if(vol) vol.addEventListener('input', () => setVol(vol.value));
-  const mMute = q('#mMute'); if(mMute) mMute.addEventListener('click', () => {
-    if(volume > 0){ lastVol = volume; setVol(0); } else setVol(lastVol || 60);
-  });
-  setVol(volume);
+  qa('.music-toggle, #musicBtn').forEach(b => b.addEventListener('click', toggleMusic));
   setOn(false);
 
   window.ui = { toast, chips, sync, jumpTo, setMode };
